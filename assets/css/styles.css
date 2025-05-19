@@ -45,9 +45,19 @@ h1 {
   font-size: 45px;
 }
 
+h2 {
+  color: #4F2819;
+  text-align: center;
+  font-size: 45px;
+}
+
 a {
   text-decoration: none; 
   color: inherit;       
+}
+
+p {
+  text-align: center;
 }
 
 text {
@@ -68,6 +78,31 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+table {
+  border: 1px solid;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  text-align: center;
+  width: 60%;
+}
+
+
+th, td {
+ padding: 8px;
+ margin: 10px;
+ border-left: 1px solid;
+ border-left: 1px solid;
+}
+
+th{
+  font-size: 20px;
+
+}
+
+
 
 footer {
   background-color: #4F2819;
