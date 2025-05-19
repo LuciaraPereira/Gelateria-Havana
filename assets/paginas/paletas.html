@@ -3,28 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Gelateria Havana - Sorvetes</title>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <title>Gelateria Havana</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="navegacao-desktop">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sorvetes</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+   <header class="navbar">
+  <figure class="logo">
+    <img src="assets/images/logo-havana.png" alt="Logo Gelateria Havana">
+  </figure>
+
+  <nav class="nav-links">
+    <ul>
+        <li><a href="../../index.html">Início</a></li>
+        <li>
+          <div class="dropdown">
+            <a href="#">Gelatos</a>
+            <button class="dropbtn" id="btndrop">
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <nav id="myDropdown" class="dropdown-content">
+              <a href="#">Picolés</a>
+              <a href="#">Paletas</a>
+              <a href="#">Outros</a>
+            </nav>
+          </div> 
+        </li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
 <!--Navegação pra mobile-->
     <header class="header-mobile">
         <nav class="nav-mobile">
             <ul class="navegacao-mobile">
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Sorvetes</a></li>
+                <li>
+                  <div class="dropdown">
+                    <a href="paletas.html">Paletas</a>
+                    <button class="dropbtn" id="btndrop">
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <nav id="myDropdown" class="dropdown-content">
+                      <a href="gelatos.html">Gelatos</a>
+                      <a href="paletas.html">Paletas</a>
+                      <a href="outros.html">Outros</a>
+                    </nav>
+                  </div> 
+                </li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
@@ -32,18 +62,14 @@
     </header>
 <!-- ------------------ -->
 
-<main class="main-sorvetes">
-    <section class="menu-sorvetes">
-
-    </section>
-
-    <section class="container-sorvetes">
-        
-    </section>
-
+<main>
+  
 </main>
 
-<!-- ------------------ -->
+  
+<!------------------------------>
+
+
 
 <footer>
     <div class="footer-container">
@@ -90,6 +116,7 @@
     </section>
     </div>    
 </footer>
-    
+
+<script src="../JavaScript/script.js"></script>
 </body>
 </html>
