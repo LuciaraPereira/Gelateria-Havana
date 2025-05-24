@@ -1,3 +1,32 @@
 .header-mobile{
     display: none;
 }
+
+/* Para o slider */
+@media (max-width: 768px) {
+  button.prev, button.next {
+    font-size: 2.5rem; /* menor para caber melhor */
+    padding: 0.3rem 0.6rem;
+  }
+  .slide img {
+    height: 60vh;
+  }
+}
+/* Para o footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-container > * {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .footer-social img {
+    margin: 0 40px;
+   
+  }
+}
