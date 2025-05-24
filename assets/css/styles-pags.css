@@ -11,9 +11,6 @@ figure img{
     margin: 20px auto;
 }
 
-.titulo-produtos{
-   
-}
 
 .produtos{
     display: flex;
@@ -27,6 +24,7 @@ figure img{
     border-radius:  15px;
     padding-bottom: 20px;
     box-shadow: 0 0 10px #00000084;
+    max-width: 200px;
 }
 
 figcaption{
