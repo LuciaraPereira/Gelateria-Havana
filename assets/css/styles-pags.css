@@ -27,19 +27,31 @@ figure img{
     max-width: 200px;
 }
 
+.textos-produto{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
 figcaption{
-    text-align: center;
+    
     padding: 10px 10px 0 10px;
     color: #4F2819;
     font-weight: bold;
 }
 
 .tracinho{
-  width: 30px;
+  width: 35px;
   height: 4px;
   background-color: #FFBBB5; /* rosa clarinho, ajuste conforme quiser */
   border-radius: 4px;
-  margin: 3px 100px 0 auto;
+  float: left;
+  margin-left: 10px;
+}
+
+.descricao{
+padding: 0 10px;
+text-align: left;
 }
 
 .produtos-img_fundo-pronto{
