@@ -9,6 +9,8 @@ figure img{
     display: flex;
     flex-direction: column;
     margin: 20px auto;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -25,6 +27,26 @@ figure img{
     padding-bottom: 20px;
     box-shadow: 0 0 10px #00000084;
     max-width: 200px;
+    transition: 1s;
+}
+
+.produtos-img_fundo:hover{
+    transform: scale(1.05);
+}
+
+.ocultar {
+  display: none;
+}
+
+#verMaisBtn{
+    background-color: #4F2819;
+    border: none;
+    border-radius: 14px;
+    padding: 14px;
+    width: 100px;
+    color: #fff;
+    margin: 20px;
+    cursor: pointer;
 }
 
 .textos-produto{
@@ -65,7 +87,10 @@ text-align: left;
     width: 200px;
     height: 250px;
     border-radius: 15px;
-  
-
 }
+
+
+
+
+
 
