@@ -35,9 +35,24 @@ body{
 
 .nav-links a {
   text-decoration: none;
-  color: #3a1f1f; /* marrom escuro */
+  color: #3a1f1f;
   font-size: 23px;
   font-weight: 500;
+}
+
+
+.nav-links a:hover, .dropbtn:hover, .nav-links a:focus, .dropbtn:focus {
+  color: #783b21;
+}
+
+button.dropbtn{
+    color: #3a1f1f;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: #FFBBB5;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
 }
 
  .slider{
@@ -301,18 +316,8 @@ footer {
 }
 
 
-.dropbtn {
-  background-color: #FFBBB5;
-  color: #4E2716;
-  padding: 5px;
-  font-size: 26px;
-  border: none;
-  cursor: pointer;
-}
 
-.dropbtn:hover, .dropbtn:focus {
-  color: #783b21;
-}
+
 
 .dropdown {
   position: relative;

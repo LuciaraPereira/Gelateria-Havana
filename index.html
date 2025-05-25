@@ -38,28 +38,35 @@
 </header>
 
 <!--Navegação pra mobile-->
-    <header class="header-mobile">
-        <nav class="nav-mobile">
-            <ul class="navegacao-mobile">
-                <li><a href="#">Início</a></li>
-                <li>
-                  <div class="dropdown">
-                    <a href="#">Gelatos</a>
-                    <button class="dropbtn" id="btndrop">
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <nav id="myDropdown" class="dropdown-content">
-                      <a href="#">Picolés</a>
-                      <a href="#">Paletas</a>
-                      <a href="#">Outros</a>
-                    </nav>
-                  </div> 
-                </li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+   <nav class="menu-responsivo">
+       <div class="separando-logos">
+       <figure class="logo">
+    <img src="assets/images/logo-havana.png" alt="Logo Gelateria Havana">
+  </figure>
+            <div class="menu" id="icon-menu"><i class="fas fa-bars"></i></div>
+       </div>
+        
+        <div class="navegacao-responsivo" id="links-nav">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+              <li>
+                <div class="dropdown">
+                  <button class="dropbtn" id="btndrop">
+                  Cardápio <i class="fa fa-caret-down"></i>
+                  </button>
+                  <nav id="myDropdown" class="dropdown-content">
+                    <a href="assets/paginas/gelatos.html">Gelatos</a>
+                    <a href="assets/paginas/picoles.html">Picolés</a>
+                    <a href="assets/paginas/paletas.html">Paletas</a>
+                    <a href="assets/paginas/outros.html">Outros</a>
+                  </nav>
+                </div> 
+              </li>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+    </nav>
 <!-- ------------------ -->
 
 <main>
@@ -182,7 +189,7 @@
 
 
 
-    <section class="sobre">
+    <section id="sobre" class="sobre">
 
         <h1>Sobre Nós</h1>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo porro amet, modi quidem quisquam pariatur! Ipsa esse suscipit cumque modi laboriosam culpa at facere saepe, minima necessitatibus veritatis iste cum!

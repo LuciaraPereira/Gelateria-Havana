@@ -6,6 +6,16 @@ iconeDrop.addEventListener('click', () => {
   dropdown.classList.toggle('show');
 });
 
+//menu hamburguer
+
+
+  const navegacao = document.getElementById('links-nav');
+  const menu = document.getElementById('icon-menu');
+
+  menu.addEventListener('click', () => {
+    navegacao.classList.toggle('ativo')
+  })
+
 //carossel de imagens
 window.onload = () => {
   let currentIndex = 0;
