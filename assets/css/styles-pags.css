@@ -35,7 +35,7 @@ figure img{
 }
 
 .ocultar {
-  display: none;
+  display: none !important;
 }
 
 #verMaisBtn{
@@ -85,7 +85,7 @@ text-align: left;
 
 .produtos-img_fundo-pronto img{
     width: 200px;
-    height: 250px;
+    height: 200px;
     border-radius: 15px;
 }
 

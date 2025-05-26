@@ -96,7 +96,7 @@ button.prev, button.next {
   padding: 0.5rem 1rem;
   cursor: pointer;
   z-index: 11;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* sombra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /*-webkit-text-stroke: 1px rgb(255, 253, 253) borda na seta */
    pointer-events: auto;
 }

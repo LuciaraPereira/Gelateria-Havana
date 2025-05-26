@@ -7,14 +7,46 @@ iconeDrop.addEventListener('click', () => {
 });
 
 //menu hamburguer
-
-
   const navegacao = document.getElementById('links-nav');
   const menu = document.getElementById('icon-menu');
 
   menu.addEventListener('click', () => {
     navegacao.classList.toggle('ativo')
   })
+
+
+//botão de ver mais/menos
+
+const imagens = document.querySelectorAll('.produtos-img_fundo');
+const btn = document.getElementById('verMaisBtn');
+const imagensPorPagina = 10;
+let indiceAtual = imagensPorPagina;
+let modoVerMais = true;
+
+btn.addEventListener('click', function () {
+  if (modoVerMais) {
+    for (let i = indiceAtual; i < indiceAtual + imagensPorPagina && i < imagens.length; i++) {
+      imagens[i].classList.remove('ocultar'); // remove a classe que esconde
+      imagens[i].style.display = 'block';     // garante que vai aparecer
+    }
+
+    indiceAtual += imagensPorPagina;
+
+    if (indiceAtual >= imagens.length) {
+      btn.textContent = 'Ver menos';
+      modoVerMais = false;
+    }
+  } else {
+    for (let i = imagensPorPagina; i < imagens.length; i++) {
+      imagens[i].classList.add('ocultar'); // esconde novamente
+      imagens[i].style.display = 'none';
+    }
+    indiceAtual = imagensPorPagina;
+    btn.textContent = 'Ver mais';
+    modoVerMais = true;
+  }
+});
+
 
 //carossel de imagens
 window.onload = () => {
@@ -46,34 +78,3 @@ window.onload = () => {
 
   showSlide(0);
 };
-
-//botão de ver mais/menos
-
-const imagens = document.querySelectorAll('.produtos-img_fundo');
-const btn = document.getElementById('verMaisBtn');
-const imagensPorPagina = 10;
-let indiceAtual = imagensPorPagina;
-let modoVerMais = true;
-
-btn.addEventListener('click', function () {
-  if (modoVerMais) {
-    for (let i = indiceAtual; i < indiceAtual + imagensPorPagina && i < imagens.length; i++) {
-      imagens[i].style.display = 'block';
-    }
-
-    indiceAtual += imagensPorPagina;
-
-    if (indiceAtual >= imagens.length) {
-      btn.textContent = 'Ver menos';
-      modoVerMais = false;
-    }
-  } else {
-    
-    for (let i = imagensPorPagina; i < imagens.length; i++) {
-      imagens[i].style.display = 'none';
-    }
-    indiceAtual = imagensPorPagina;
-    btn.textContent = 'Ver mais';
-    modoVerMais = true;
-  }
-});
