@@ -11,57 +11,64 @@
     <title>Gelateria Havana</title>
 </head>
 <body>
-   <header class="navbar">
-  <figure class="logo">
-    <img src="../images/logo-havana.png" alt="Logo Gelateria Havana">
-  </figure>
+  <!-- Navbar desktop -->
+  <header class="navbar">
+    <figure class="logo">
+      <img src="../images/logo-havana.png" alt="Logo Gelateria Havana">
+    </figure>
 
-  <nav class="nav-links">
-    <ul>
+    <nav class="nav-links">
+      <ul>
         <li><a href="../../index.html">Início</a></li>
         <li>
           <div class="dropdown">
-          
-            <button class="dropbtn" id="btndrop">
+            <button class="dropbtn" id="btndrop-desktop">
               Cardápio <i class="fa fa-caret-down"></i>
             </button>
-            <nav id="myDropdown" class="dropdown-content">
-                <a href="gelatos.html">Gelatos</a>
-                <a href="picoles.html">Picolés</a>
-                <a href="paletas.html">Paletas</a>
-                  <a href="outros.html">Outros</a>
+            <nav id="dropdown-desktop" class="dropdown-content">
+               <a href="../paginas/gelatos.html">Gelatos</a>
+              <a href="../paginas/picoles.html">Picolés</a>
+              <a href="../paginas/paletas.html">Palletas</a>
+              <a href="../paginas/outros.html">Outros</a>
             </nav>
-          </div> 
+          </div>
         </li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#">Contato</a></li>
-    </ul>
-  </nav>
-</header>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!--Navegação pra mobile-->
-    <header class="header-mobile">
-        <nav class="nav-mobile">
-            <ul class="navegacao-mobile">
-                <li><a href="#">Início</a></li>
-                <li>
-                  <div class="dropdown">
-                    <a href="#">Mais</a>
-                    <button class="dropbtn" id="btndrop">
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <nav id="myDropdown" class="dropdown-content">
-                      <a href="#">Picolés</a>
-                      <a href="#">Paletas</a>
-                      <a href="#">Outros</a>
-                    </nav>
-                  </div> 
-                </li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navegação mobile -->
+  <nav class="menu-responsivo">
+    <div class="separando-logos">
+      <figure class="logo">
+      <img src="../images/logo-havana.png" alt="Logo Gelateria Havana">
+      </figure>
+      <div class="menu" id="icon-menu"><i class="fas fa-bars"></i></div>
+    </div>
+
+    <div class="navegacao-responsivo" id="links-nav">
+      <ul>
+        <li><a href="../../index.html">Início</a></li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn" id="btndrop-mobile">
+              Cardápio <i class="fa fa-caret-down"></i>
+            </button>
+            <nav id="dropdown-mobile" class="dropdown-content">
+               <a href="../paginas/gelatos.html">Gelatos</a>
+              <a href="../paginas/picoles.html">Picolés</a>
+              <a href="../paginas/paletas.html">Palletas</a>
+              <a href="../paginas/outros.html">Outros</a>
+            </nav>
+          </div>
+        </li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
 <!-- ------------------ -->
 
 <main class="container-produtos">
@@ -93,67 +100,68 @@
     </figure>
 
     <figure class="produtos-img_fundo ">
-      <img src="../images/acai-galeria.webp" alt="Descrição da foto 1">
-     
+         <img src="../images/cascao-galeria.webp" alt="Descrição da foto 1">
+        
       <div class="textos-produto">
-          <figcaption>Yogurte Amarena</figcaption>
+          <figcaption>Cascão</figcaption>
          <div class="tracinho"> </div>
          <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </figure>
 
     <figure class="produtos-img_fundo ">
-      <img src="../images/acai-galeria.webp" alt="Descrição da foto 1">
-     
+      <img src="../images/milkshake-galeria.webp" alt="Descrição da foto 1">
+  
       <div class="textos-produto">
-          <figcaption>Yogurte Amarena</figcaption>
+          <figcaption>Milkshake</figcaption>
          <div class="tracinho"> </div>
          <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </figure>
 
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/acai-galeria.webp" alt="Logo Gelateria Havana">
-          <figcaption>Açai</figcaption>
-    
-        </figure>
-
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/bananasplit-galeria.webp" alt="Descrição da foto 1">
-          <figcaption>Banana Split</figcaption>
-        </figure>
-
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/cascao-galeria.webp" alt="Descrição da foto 1">
-          <figcaption>Cascão</figcaption>
-        </figure>
-    
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/milkshake-galeria.webp" alt="Descrição da foto 1">
-          <figcaption>Milkshake</figcaption>
-        </figure>
-
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/petit-gateau-galeria.webp" alt="Descrição da foto 1">
+    <figure class="produtos-img_fundo ">
+      <img src="../images/petit-gateau-galeria.webp" alt="Descrição da foto 1">
+          
+  
+      <div class="textos-produto">
           <figcaption>Petit Gateau</figcaption>
-        </figure>
+         <div class="tracinho"> </div>
+         <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </figure>
 
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/Sorvete-Artesanal-seflservice.webp" alt="Descrição da foto 1">
-          <figcaption>Gelatos Self-service</figcaption>
-        </figure>
+    <figure class="produtos-img_fundo ">
+      <img src="../images/Sorvete-Artesanal-seflservice.webp" alt="Descrição da foto 1">
+         
+  
+      <div class="textos-produto">
+           <figcaption>Gelatos Self-service</figcaption>
+         <div class="tracinho"> </div>
+         <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </figure>
 
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/para-viagem-galeria.webp" alt="Descrição da foto 1">
+    <figure class="produtos-img_fundo ">
+      <img src="../images/para-viagem-galeria.webp" alt="Descrição da foto 1">
+         
+  
+      <div class="textos-produto">
           <figcaption>Para Viagem</figcaption>
-        </figure>
+         <div class="tracinho"> </div>
+         <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </figure>
 
-        <figure class="produtos-img_fundo-pronto">
-          <img src="../images/Gelato_DoceLeite.jpg" alt="Descrição da foto 1">
-          <figcaption>Diet</figcaption>
-        </figure>
-
-
+    <figure class="produtos-img_fundo ">
+      <img src="../images/Gelato_DoceLeite.jpg" alt="Descrição da foto 1">
+          
+      <div class="textos-produto">
+         <figcaption>Diet</figcaption>
+         <div class="tracinho"> </div>
+         <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </figure>
+      
   </section>
 
 </main>

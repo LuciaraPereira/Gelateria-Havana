@@ -11,56 +11,64 @@
     <title>Gelateria Havana</title>
 </head>
 <body>
-   <header class="navbar">
-  <figure class="logo">
-    <img src="../images/logo-havana.png" alt="Logo Gelateria Havana">
-  </figure>
+   <!-- Navbar desktop -->
+  <header class="navbar">
+    <figure class="logo">
+      <img src="../images/logo-havana.png" alt="Logo Gelateria Havana">
+    </figure>
 
-  <nav class="nav-links">
-    <ul>
-      <li><a href="../../index.html">Início</a></li>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="../../index.html">Início</a></li>
         <li>
           <div class="dropdown">
-            <button class="dropbtn" id="btndrop">
+            <button class="dropbtn" id="btndrop-desktop">
               Cardápio <i class="fa fa-caret-down"></i>
             </button>
-            <nav id="myDropdown" class="dropdown-content">
-              <a href="gelatos.html">Gelatos</a>
-              <a href="picoles.html">Picolés</a>
-              <a href="paletas.html">Paletas</a>
-              <a href="outros.html">Outros</a>
+            <nav id="dropdown-desktop" class="dropdown-content">
+               <a href="../paginas/gelatos.html">Gelatos</a>
+              <a href="../paginas/picoles.html">Picolés</a>
+              <a href="../paginas/paletas.html">Palletas</a>
+              <a href="../paginas/outros.html">Outros</a>
             </nav>
-          </div> 
+          </div>
         </li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#">Contato</a></li>
-    </ul>
-  </nav>
-</header>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!--Navegação pra mobile-->
-    <header class="header-mobile">
-        <nav class="nav-mobile">
-            <ul class="navegacao-mobile">
-                <li><a href="../../index.html">Início</a></li>
-                <li>
-                  <div class="dropdown">
-                    <a href="#">Gelatos</a>
-                    <button class="dropbtn" id="btndrop">
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <nav id="myDropdown" class="dropdown-content">
-                      <a href="#">Picolés</a>
-                      <a href="#">Paletas</a>
-                      <a href="#">Outros</a>
-                    </nav>
-                  </div> 
-                </li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navegação mobile -->
+  <nav class="menu-responsivo">
+    <div class="separando-logos">
+      <figure class="logo">
+        <img src="../images/logo-havana.png" alt="Logo Gelateria Havana">
+      </figure>
+      <div class="menu" id="icon-menu"><i class="fas fa-bars"></i></div>
+    </div>
+
+    <div class="navegacao-responsivo" id="links-nav">
+      <ul>
+        <li><a href="../../index.html">Início</a></li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn" id="btndrop-mobile">
+              Cardápio <i class="fa fa-caret-down"></i>
+            </button>
+            <nav id="dropdown-mobile" class="dropdown-content">
+              <a href="../paginas/gelatos.html">Gelatos</a>
+              <a href="../paginas/picoles.html">Picolés</a>
+              <a href="../paginas/paletas.html">Palletas</a>
+              <a href="../paginas/outros.html">Outros</a>
+            </nav>
+          </div>
+        </li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
 <!-- ------------------ -->
 
 <main class="container-produtos">

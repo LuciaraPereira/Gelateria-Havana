@@ -35,7 +35,7 @@ figure img{
 }
 
 .ocultar {
-  display: none !important;
+  display: none;
 }
 
 #verMaisBtn{
@@ -47,6 +47,12 @@ figure img{
     color: #fff;
     margin: 20px;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#verMaisBtn:hover{
+    background-color: #632f1b;
 }
 
 .textos-produto{
@@ -63,12 +69,12 @@ figcaption{
 }
 
 .tracinho{
-  width: 35px;
-  height: 4px;
-  background-color: #FFBBB5; /* rosa clarinho, ajuste conforme quiser */
+  width: 30px;
+  height: 5px;
+  background-color: #853617; 
   border-radius: 4px;
   float: left;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .descricao{

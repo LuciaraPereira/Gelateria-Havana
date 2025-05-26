@@ -1,51 +1,86 @@
-//dropdown navbar
-const iconeDrop = document.getElementById('btndrop');
-const dropdown = document.getElementById('myDropdown');
+// Dropdown desktop
+const dropDesktopBtn = document.getElementById('btndrop-desktop');
+const dropdownDesktop = document.getElementById('dropdown-desktop');
 
-iconeDrop.addEventListener('click', () => {
-  dropdown.classList.toggle('show');
+// Dropdown mobile
+const dropMobileBtn = document.getElementById('btndrop-mobile');
+const dropdownMobile = document.getElementById('dropdown-mobile');
+
+if (dropDesktopBtn && dropdownDesktop) {
+  dropDesktopBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // impede o clique de fechar imediatamente
+    dropdownDesktop.classList.toggle('show');
+  });
+}
+
+if (dropMobileBtn && dropdownMobile) {
+  dropMobileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdownMobile.classList.toggle('show');
+  });
+}
+
+// Fecha os dropdowns ao clicar fora
+document.addEventListener('click', (e) => {
+  // Fecha dropdown desktop se clicar fora
+  if (!dropDesktopBtn.contains(e.target) && !dropdownDesktop.contains(e.target)) {
+    dropdownDesktop.classList.remove('show');
+  }
+
+  // Fecha dropdown mobile se clicar fora
+  if (!dropMobileBtn.contains(e.target) && !dropdownMobile.contains(e.target)) {
+    dropdownMobile.classList.remove('show');
+  }
 });
 
-//menu hamburguer
-  const navegacao = document.getElementById('links-nav');
-  const menu = document.getElementById('icon-menu');
+// Menu hambúrguer responsivo
+const menu = document.getElementById('icon-menu');
+const navegacao = document.getElementById('links-nav');
 
+if (menu && navegacao) {
   menu.addEventListener('click', () => {
-    navegacao.classList.toggle('ativo')
-  })
-
+    navegacao.classList.toggle('ativo');
+  });
+}
 
 //botão de ver mais/menos
 
+// botão de ver mais/menos
 const imagens = document.querySelectorAll('.produtos-img_fundo');
 const btn = document.getElementById('verMaisBtn');
 const imagensPorPagina = 10;
 let indiceAtual = imagensPorPagina;
 let modoVerMais = true;
 
-btn.addEventListener('click', function () {
-  if (modoVerMais) {
-    for (let i = indiceAtual; i < indiceAtual + imagensPorPagina && i < imagens.length; i++) {
-      imagens[i].classList.remove('ocultar'); // remove a classe que esconde
-      imagens[i].style.display = 'block';     // garante que vai aparecer
-    }
+if (btn && imagens.length > 0) {
+  btn.addEventListener('click', function () {
+    if (modoVerMais) {
+      for (let i = indiceAtual; i < indiceAtual + imagensPorPagina && i < imagens.length; i++) {
+        imagens[i].classList.remove('ocultar');
+        imagens[i].style.display = 'block';
+      }
 
-    indiceAtual += imagensPorPagina;
+      indiceAtual += imagensPorPagina;
 
-    if (indiceAtual >= imagens.length) {
-      btn.textContent = 'Ver menos';
-      modoVerMais = false;
+      if (indiceAtual >= imagens.length) {
+        btn.textContent = 'Ver menos';
+        modoVerMais = false;
+      }
+    } else {
+      for (let i = imagensPorPagina; i < imagens.length; i++) {
+        imagens[i].classList.add('ocultar');
+        imagens[i].style.display = 'none';
+      }
+      indiceAtual = imagensPorPagina;
+      btn.textContent = 'Ver mais';
+      modoVerMais = true;
     }
-  } else {
-    for (let i = imagensPorPagina; i < imagens.length; i++) {
-      imagens[i].classList.add('ocultar'); // esconde novamente
-      imagens[i].style.display = 'none';
-    }
-    indiceAtual = imagensPorPagina;
-    btn.textContent = 'Ver mais';
-    modoVerMais = true;
-  }
-});
+  });
+}
+
+
+
+
 
 
 //carossel de imagens

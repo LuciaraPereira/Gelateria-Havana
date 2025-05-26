@@ -40,10 +40,10 @@ body{
   font-weight: 500;
 }
 
-
-.nav-links a:hover, .dropbtn:hover, .nav-links a:focus, .dropbtn:focus {
-  color: #783b21;
+button.dropbtn:hover, .nav-links a:hover{
+  color: #682b13;
 }
+
 
 button.dropbtn{
     color: #3a1f1f;
@@ -301,9 +301,11 @@ footer {
 
 .footer-social {
   display: flex;
-  gap: 15px;
+  gap: 9px;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .footer-social img {
@@ -314,8 +316,6 @@ footer {
   padding: auto;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
-
-
 
 
 
@@ -340,10 +340,6 @@ footer {
   text-decoration: none;
   display: block;
   border: #3a1f1f solid 1px;
-}
-
-.dropdown-content a:hover {
-  background-color: #fccac6;
 }
 
 .dropdown-content.show {
