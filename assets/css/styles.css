@@ -3,7 +3,9 @@ body{
   padding: 0;
   font-family: 'ABeeZee', sans-serif;
   font-weight: 100;
-  background-color:  #FFF2F1;
+  background-color:  #f2d8d7;
+  /*#f2d8d7 outra opção de cor de fundo
+  a que tava #FFF2F1*/
 }
 
 .navbar {
@@ -29,7 +31,7 @@ body{
   align-items: center;
   margin-left: 200px;
   gap: 80px;
-  margin: 0;
+  margin: 20px;
   padding: 0;
 }
 
@@ -139,6 +141,8 @@ button.next { right: 10px; }
   gap: 1px;
   object-fit:contain;
   padding: 0 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .produto {

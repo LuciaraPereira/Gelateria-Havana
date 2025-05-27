@@ -43,7 +43,6 @@ if (menu && navegacao) {
   });
 }
 
-//botão de ver mais/menos
 
 // botão de ver mais/menos
 const imagens = document.querySelectorAll('.produtos-img_fundo');

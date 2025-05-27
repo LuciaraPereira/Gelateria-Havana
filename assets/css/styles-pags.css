@@ -5,7 +5,7 @@ figure img{
 }
 
 .container-produtos{
-    max-width: 1400px;
+    max-width: 1450px;
     display: flex;
     flex-direction: column;
     margin: 20px auto;
@@ -19,6 +19,8 @@ figure img{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin: 35px;
+    gap: 40px;
 }
 
 .produtos-img_fundo{
@@ -43,7 +45,7 @@ figure img{
     border: none;
     border-radius: 14px;
     padding: 14px;
-    width: 100px;
+    width: 120px;
     color: #fff;
     margin: 20px;
     cursor: pointer;
@@ -58,7 +60,8 @@ figure img{
 .textos-produto{
 display: flex;
 flex-direction: column;
-justify-content: center;
+margin: 10px;
+text-align: left;
 }
 
 figcaption{
@@ -80,23 +83,56 @@ figcaption{
 .descricao{
 padding: 0 10px;
 text-align: left;
+margin-top: 5px;
 }
 
+
+
 .produtos-img_fundo-pronto{
-    border-radius:  15px;
-    text-align: center;
-    padding: 10px;
-    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color:  #fcd6d4;
+    border-radius:  75px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 8px #0000009f;
+    max-width: 210px;
+    transition: 1s;
+    border: #853617 solid 0.4px;
+ 
+}
+
+.produtos-img_fundo-pronto:hover{
+    transform: scale(1.10);
+     animation: animarCor 2s infinite alternate;
+}
+
+@keyframes animarCor {
+ 
+  100% { background-color:  #eda386 ; } /*escolher cores para transição*/
 }
 
 .produtos-img_fundo-pronto img{
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     border-radius: 15px;
+    margin-top: 15px;
+}
+
+.textos-produto-p{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 10px;
+text-align: center;
 }
 
 
-
-
-
+.descricao-p{
+padding: 0 10px;
+text-align: center;
+margin-top: 5px;
+}
 
