@@ -93,25 +93,22 @@ margin-top: 5px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color:  #fcd6d4;
+    background-color:  #fcd5d1;
     border-radius:  75px;
     padding-bottom: 20px;
     box-shadow: 0 0 8px #0000009f;
     max-width: 210px;
     transition: 1s;
-    border: #853617 solid 0.4px;
+    border: #853617 solid 1px;
  
 }
 
 .produtos-img_fundo-pronto:hover{
     transform: scale(1.10);
-     animation: animarCor 2s infinite alternate;
+     background-color:  #f7c0bb;
 }
 
-@keyframes animarCor {
- 
-  100% { background-color:  #eda386 ; } /*escolher cores para transição*/
-}
+
 
 .produtos-img_fundo-pronto img{
     width: 210px;
