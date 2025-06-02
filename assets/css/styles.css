@@ -192,6 +192,7 @@ button.next {
 .produto h3 {
   font-size: 1.2rem;
   margin: 0.5rem 0;
+  color:#FFBBB5
 }
 
 .produto p {
@@ -238,7 +239,6 @@ text {
   height: auto;
   margin: 5px;
   padding: 0 30px;
-
 
 }
 
@@ -347,120 +347,65 @@ footer {
   z-index: 11;
 }
 
-
-
-
-
-
-
-.sobre {
+.sobre-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  justify-content: space-between;
+  /* gap: 40px; */
+  padding: 40px;
+  background-color: #f9b6ae; /* ou a cor que você quiser */
   margin-top: 70px;
+  background-color: #FFBBB5;
+  border-radius: 50px;
+  text-align: justify;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  padding: 40px;
 }
 
-.cont-sobre {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 50px;
+.exterior {
+  max-width: 500px;
+  max-height: 500px;
+  display:flexbox;
+  border-radius: 20px;
+  border:#3a1f1f solid 2px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.texto-sobre {
   text-align: justify;
-  column-gap: 100px;
-  margin: 10px;
- 
+  min-width: 300px;
+}
+
+.titulo-sobre {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 div img {
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   max-width: 100%; 
-  
+  height: auto; 
 }
 
-.text-sobre {
+.motion{
   display: flex;
+  justify-content: center;
+  margin: 0 auto;
   flex-direction: column;
-  margin-left: 80px;
-  width: 50%;
-  
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 200px;
 }
 
-
-
-
-/* --- Responsividade para telas menores que 768px (celulares e tablets) --- */
-@media (max-width: 768px) {
-  .cont-sobre {
-    flex-direction: column; /* coloca a imagem e o texto um abaixo do outro */
-    margin-right: 0;
-    column-gap: 0;
-    align-items: center;
-    text-align: center;
-  }
-
-  .text-sobre {
-    width: 100%;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  div img {
-    max-width: 90%;
-    margin-bottom: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-
-
- 
-  .curiosidade {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.colunas-curiosidades {
+.img {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: flex-start;
-  gap: 40px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-  max-width: 1000px; /* Largura máxima da área das colunas */
-  margin-left: auto;
-  margin-right: auto; /* Centraliza o container na tela */
+  justify-content: center; 
+  gap: 40px; 
+  flex-wrap: wrap; 
+  margin: 20px;
 }
-
-.colunas-curiosidades > div {
-  flex: 1;
-  max-width: 45%;
-  text-align: left; /* Para manter os textos alinhados à esquerda */
-}
-
-.colunas-curiosidades img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.colunas-curiosidades ul {
-  list-style: none;
-  padding-left: 20px;
-  text-align: center;
-}
-
-.titulo{
-  font-size: 25px;
-  margin-bottom: 10px;
-  color: #3a1f1f;
-  font-weight: 900;
-}
-
-
-
 
 .formulario {
   display: flex;
@@ -502,12 +447,6 @@ font-size: 17px;
 
 }
 
-@media (max-width: 768px) {
-  .form1,
-  .form2 {
-    flex-basis: 100%;
-  }
-}
 
 .form1 input[type="text"],
 .form1 input[type="tel"],
@@ -527,15 +466,15 @@ font-size: 17px;
  
 }
 .form1 input[type="submit"],
-    .form2 input[type="submit"] 
+.form2 input[type="submit"] 
       
-    {
-width: 100%;
+  {
+  width: 100%;
   max-width: 300px;
   margin-bottom: 10px;
   padding: 8px;
  
-    }
+  }
 
 
     .contato-icons {
@@ -571,24 +510,35 @@ width: 100%;
   height: 30px;
 }
 
-/* Responsivo para telas menores */
-@media (max-width: 600px) {
-  .contato-icons {
-    gap: 20px;
-  }
+.tabela-curiosidades {
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 30px;
+  text-align: center;
+  overflow-x: hidden; /* Garante que nada ultrapasse */
+}
 
-  .icone-bg {
-    width: 60px;
-    height: 60px;
-  }
+.tabela-curiosidades th,
+.tabela-curiosidades td {
+  padding: 0px;
+  word-break: break-word;
+  font-size: 2rem;
+}
 
-  .icone-bg img {
-    width: 25px;
-    height: 25px;
-  }
+.tabela-curiosidades thead th {
+  background-color: #513f3f; /* Cor do cabeçalho */
+  color: #fcd3d0;
+  font-size: 2rem;
+}
 
-  .icone-contato p {
-    font-size: 14px;
-    text-align: center;
-  }
+.tabela-curiosidades tbody td:nth-child(1) {
+  background-color: #FFF2F1; /* Gelato */
+}
+
+.tabela-curiosidades tbody td:nth-child(2) {
+  background-color: #FFF2F1; /* Sorvete */
+}
+
+.tabela-curiosidades tr:hover td {
+  background-color: #fcd3d0; /* Efeito hover */
 }
