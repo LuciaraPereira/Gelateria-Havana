@@ -192,7 +192,7 @@ button.next {
 .produto h3 {
   font-size: 1.2rem;
   margin: 0.5rem 0;
-  color:#FFBBB5
+  color: #FFBBB5
 }
 
 .produto p {
@@ -360,13 +360,14 @@ footer {
   margin: 40px;
   justify-content: center;
   align-items: center;
-  
+
   /* gap: 40px; 
   justify-content: space-between;
    padding: 40px;
      align-items: center;*/
- 
-  background-color: #f9b6ae; /* ou a cor que você quiser */
+
+  background-color: #f9b6ae;
+  /* ou a cor que você quiser */
   margin-top: 70px;
   background-color: #FFBBB5;
   border-radius: 50px;
@@ -380,8 +381,8 @@ footer {
   /*max-width: 500px;
   max-height: 500px;*/
   border-radius: 20px;
-  border:#3a1f1f solid 2px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border: #3a1f1f solid 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .texto-sobre {
@@ -399,20 +400,17 @@ footer {
 
 
 
-/* Estilização do container do formulário */
+
 .formulario {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 100vw;
-  flex-wrap: wrap;
-  padding: 20px;
-  margin-top: 20px;
-  gap: 20px;
+  align-items: center;
+  width: 90%;
+  margin: 40px auto;
 }
 
 .form1 {
-  width: 90%;
+  width: 100%;
   max-width: 700px;
   min-width: 280px;
   display: flex;
@@ -426,14 +424,12 @@ footer {
 
 /* Estilização dos textos */
 .form1 h1 {
-  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 15px;
 }
 
 .form1 p {
   text-align: center;
-  font-size: 1rem;
   margin-bottom: 20px;
 }
 
@@ -443,10 +439,8 @@ footer {
 .form1 input[type="email"],
 .form1 input[type="submit"],
 .form1 textarea {
-  width: clamp(280px, 80%, 700px);
-  min-height: 50px;
-  font-size: 1rem;
-  padding: 12px;
+  width: clamp(180px, 80%, 700px);
+  padding: 5px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -457,11 +451,10 @@ footer {
   cursor: pointer;
   background-color: #4d2323;
   color: white;
-  font-size: 1.1rem;
   font-weight: bold;
   border: none;
-  padding: 12px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
@@ -469,71 +462,60 @@ footer {
   background-color: #762d2d;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 480px) {
-  .form1 input[type="text"],
-  .form1 input[type="tel"],
-  .form1 input[type="email"],
-  .form1 textarea {
-      font-size: 0.9rem;
-      height: 45px;
-  }
-}
+
 
 
 .contato-icons {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  gap: 40px; 
-  margin: 40px 0; 
-  flex-wrap: wrap; 
-  padding: 0 15px; 
-  box-sizing: border-box; 
-  width: 100%; 
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+
 }
 
 .icone-contato {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza o ícone e o texto dentro de cada item */
+  align-items: center;
   font-weight: bold;
-  text-align: center; /* Garante que o texto abaixo do ícone fique centralizado */
-  /* min-width: 80px;  Opcional: Garante uma largura mínima para cada bloco de ícone */
-  /* flex-basis: 120px; Opcional: Sugere uma largura base para cada ícone antes de quebrar */
-  /* flex-grow: 1; Opcional: Se quiser que eles cresçam para preencher o espaço */
-  /* flex-shrink: 1; Opcional: Permite que encolham */
+  text-align: center;
+ 
 }
 
 .icone-bg {
-  background-color: #8B0000; 
+  background-color: #8B0000;
   border-radius: 50%;
-  width: 70px; 
-  height: 70px; 
+  width: 70px;
+  height: 70px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .icone-bg img {
-  width: 30px; 
+  width: 30px;
   height: 30px;
-  display: block; 
+  display: block;
   max-width: 100%;
-  height: auto; 
+  height: auto;
 }
 
-.curiosidades{
+.curiosidades {
   display: flex;
   flex-direction: column;
   margin: 30px;
   overflow-x: hidden;
 }
 
-.motion{
+.motion {
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -541,24 +523,25 @@ footer {
   width: 30%;
 }
 
-.motions img{
+.motions img {
   width: 20%;
 }
 
-  .motions{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: -35px;
-  }
+.motions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: -35px;
+}
 
 .tabela-curiosidades {
   width: 100%;
   font-family: 'Segoe UI', sans-serif;
   margin-top: 30px;
   text-align: center;
-  overflow-x: hidden; /* Garante que nada ultrapasse */
+  overflow-x: hidden;
+  /* Garante que nada ultrapasse */
 }
 
 .tabela-curiosidades th,
@@ -574,26 +557,29 @@ footer {
 }
 
 .tabela-curiosidades tbody td:nth-child(1) {
-  background-color: #FFF2F1; /* Gelato */
+  background-color: #FFF2F1;
+  /* Gelato */
 }
 
 .tabela-curiosidades tbody td:nth-child(2) {
-  background-color: #FFF2F1; /* Sorvete */
+  background-color: #FFF2F1;
+  /* Sorvete */
 }
 
 .tabela-curiosidades tr:hover td {
-  background-color: #fcd3d0; /* Efeito hover */
+  background-color: #fcd3d0;
+  /* Efeito hover */
 }
 
-.texto{
+.texto {
   margin: 20px 0 20px 20px;
   font-size: 17px;
-  }
-  
-  .mapa {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 30px 30px 70px;
-  
-  }
+}
+
+.mapa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  margin-bottom: 50px;
+}

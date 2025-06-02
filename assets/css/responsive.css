@@ -246,7 +246,6 @@
       }
 }
 
-/* Responsivo para telas menores */
 @media (max-width: 600px) {
   .contato-icons {
     gap: 20px;
@@ -265,5 +264,16 @@
   .icone-contato p {
     font-size: 14px;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .form1 input[type="text"],
+  .form1 input[type="tel"],
+  .form1 input[type="email"],
+  .form1 textarea {
+    font-size: 0.9rem;
+    height: 45px;
   }
 }
