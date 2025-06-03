@@ -22,9 +22,9 @@
     width: 100%;
   }
 
-  .tabela-curiosidades thead {
-     /* Oculta o cabeçalho com imagens */
-  }
+  /* .tabela-curiosidades thead {
+     /* Oculta o cabeçalho com imagens 
+  } */
 
   .tabela-curiosidades tbody tr {
     display: block;
@@ -63,15 +63,21 @@
     text-align: center;
   }
 
-  .footer-container > * {
+  .footer-container {
     width: 100%;
     margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
   }
 
-  .footer-social img {
+  .social-icon a {
     margin: 0 40px;
+    font-size: 50px;
+   transition: 0.3s ease;
    
   }
+
   button.prev, button.next {
     font-size: 2.5rem; /* menor para caber melhor */
     padding: 0.3rem 0.6rem;

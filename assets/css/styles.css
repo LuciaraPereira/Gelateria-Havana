@@ -1,3 +1,8 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -29,9 +34,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 200px;
-  gap: 80px;
-  margin: 20px;
+  /* margin-left: 200px; */
+  gap: 40px;
+  margin:0 20px;
   padding: 0;
 }
 
@@ -308,20 +313,17 @@ footer {
 
 .footer-social {
   display: flex;
-  gap: 9px;
+  gap: 20px;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 5px;
   flex-wrap: wrap;
+  font-size: 37px;
+  
 }
 
-.footer-social img {
-  width: 36px;
-  height: 36px;
-  background-color: transparent;
-  /* border-radius: 50%; */
-  padding: auto;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.footer-social a:hover {
+  color: #FFBBB5;
 }
 
 
@@ -583,3 +585,4 @@ footer {
   margin: 20px;
   margin-bottom: 50px;
 }
+
