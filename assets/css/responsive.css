@@ -54,21 +54,32 @@
     color: #513f3f;
   }
 
+  .produto {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 2px 5px;
+  }	
 
+  figcaption p {
+    font-size: 7px;
+  
+  }	
 
-
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  figcaption h3{
+    font-size: 10px
   }
 
+.sobre-container{
+    margin: 0 10px
+    
+}
+
+
   .footer-container {
-    width: 100%;
-    margin-bottom: 1rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 16px;
+    font-size: 13px;
+    /* flex-direction: column; */
+    align-items: center;
+    text-align: center;
   }
 
   .social-icon a {
@@ -83,7 +94,8 @@
     padding: 0.3rem 0.6rem;
   }
   .slide img {
-    height: 60vh;
+    min-width: 500px;
+    max-height: 400px;
   }
   .cont-sobre {
     flex-direction: column;
@@ -138,8 +150,9 @@
     font-weight: bold;
     display: block;
     margin-bottom: 0.3rem;
-    color: #444;
+
   }
+
 }
 
 
@@ -281,5 +294,6 @@
   .form1 textarea {
     font-size: 0.9rem;
     height: 45px;
-  }
+  } 
+
 }

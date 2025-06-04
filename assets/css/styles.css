@@ -84,7 +84,9 @@ button.dropbtn {
 }
 
 .slide img {
-  width: 100%;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .slide {
@@ -156,6 +158,7 @@ button.next {
   padding: 0 1rem;
   justify-content: center;
   align-items: center;
+  margin: 0 5px;
 }
 
 .produto {
@@ -359,22 +362,13 @@ footer {
   display: flex;
   flex-direction: column;
   border-radius: 50px;
-  margin: 40px;
+  margin: 0 40px;
   justify-content: center;
   align-items: center;
-
-  /* gap: 40px; 
-  justify-content: space-between;
-   padding: 40px;
-     align-items: center;*/
-
+  text-align: left;
   background-color: #f9b6ae;
-  /* ou a cor que você quiser */
-  margin-top: 70px;
   background-color: #FFBBB5;
   border-radius: 50px;
-  text-align: justify;
-
   padding: 40px;
 }
 
@@ -387,10 +381,12 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.texto-sobre {
-  text-align: justify;
+.texto-sobre p{
+  text-align: left;
   min-width: 300px;
 }
+
+
 
 .titulo-sobre {
   font-size: 1.5rem;
@@ -586,3 +582,28 @@ footer {
   margin-bottom: 50px;
 }
 
+
+
+
+/* MOBILE FIRST: texto colapsado por padrão */
+.texto-sobre {
+  max-height: 300px;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.texto-sobre.expandido {
+  max-height: 2000px; /* ajuste conforme o conteúdo */
+}
+
+/* Botão padrão */
+.botao-ver-mais {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4d2323;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

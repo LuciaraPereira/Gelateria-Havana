@@ -112,3 +112,12 @@ window.onload = () => {
 
   showSlide(0);
 };
+
+
+  const toggleBtn = document.getElementById('toggleBtn');
+  const texto = document.getElementById('textoSobre');
+
+  toggleBtn.addEventListener('click', () => {
+    texto.classList.toggle('expandido');
+    toggleBtn.textContent = texto.classList.contains('expandido') ? 'Ver menos' : 'Ver mais';
+  });
