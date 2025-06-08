@@ -52,10 +52,14 @@ button.dropbtn:hover,
   color: #682b13;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 button.dropbtn {
   color: #3a1f1f;
-  font-size: 24px;
   font-weight: 500;
   background-color: #FFBBB5;
   padding: 5px;
@@ -66,8 +70,6 @@ button.dropbtn {
 .slider {
   margin: 0 auto;
   position: relative;
-  width: 100%;
-  height: 400px;
   overflow: hidden;
   width: 100%;
   display: flex;
@@ -77,14 +79,13 @@ button.dropbtn {
 
 .slides {
   width: 100%;
-  height: 400px;
+  height: auto;
   display: flex;
   transition: transform 0.5s ease-in-out;
-  z-index: -1;
+  z-index: -1; 
 }
 
 .slide img {
-  height: auto;
   object-fit: cover;
   overflow: hidden;
 }
@@ -129,7 +130,6 @@ button.next {
 .texto-apresentacao h2 {
   margin: 0 auto;
   padding: 0;
-  color: #4f2819;
 }
 
 .texto-apresentacao p {
@@ -233,13 +233,14 @@ a {
 
 p {
   text-align: center;
+  padding: 0.5rem;
 
 }
 
 text {
   font-family: 'Arial', sans-serif;
   color: #4F2819;
-  display: center;
+  /* display: center; */
   justify-content: center;
   /* horizontal */
   align-items: center;
@@ -258,34 +259,41 @@ ul {
 
 
 footer {
+  display: flex;
   background-color: #4F2819;
   color: white;
   padding: 30px;
+  padding-top: 40px;
   font-family: 'Arial', sans-serif;
-  bottom: 0;
+  min-height: 300px;
+  /* bottom: 0; */
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
+  justify-content: center;
   padding: 20px;
-  align-items: center;
   flex: 1 1 200px;
   min-width: 200px;
+  font-size: 14px;
+  align-items: center;
+  box-sizing: border-box; /* garante que o padding conte dentro da largura */
+  gap: 40px;
 }
 
 .footer-logo img {
   width: 160px;
   height: auto;
+  margin-bottom: 20px;
+  text-align: center;
   /* max-width: 150px; */
 }
 
 .logo-footer {
   max-width: 100%;
   height: auto;
-  display: block;
+  
 }
 
 .footer-section,
@@ -361,21 +369,24 @@ footer {
 .sobre-container {
   display: flex;
   flex-direction: column;
-  border-radius: 50px;
-  margin: 0 40px;
+  margin: 0 20px;
   justify-content: center;
   align-items: center;
   text-align: left;
-  background-color: #f9b6ae;
   background-color: #FFBBB5;
   border-radius: 50px;
-  padding: 40px;
+  padding: 20px;
+  box-sizing: border-box; /* garante que o padding conte dentro da largura */
+  max-width: 100%;
+  overflow-wrap: break-word; /* quebra palavras longas */
+  word-break: break-word;
 }
 
 .exterior {
-  width: 70%;
-  /*max-width: 500px;
-  max-height: 500px;*/
+  width: 100%;
+  display: flex;
+  max-width: 50%; 
+  /* max-height: 500px; */
   border-radius: 20px;
   border: #3a1f1f solid 2px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -383,7 +394,7 @@ footer {
 
 .texto-sobre p{
   text-align: left;
-  min-width: 300px;
+  /* min-width: 300px; */
 }
 
 
@@ -454,6 +465,9 @@ footer {
   padding: 10px;
   border-radius: 10px;
   transition: 0.3s;
+  align-items: center;
+  display: block;
+  margin: 0 50px;
 }
 
 .botao:hover {
@@ -606,4 +620,10 @@ footer {
   color: white;
   font-weight: bold;
   cursor: pointer;
+}
+
+span {
+  font-weight: bold;
+  font-size: 14px;
+
 }
