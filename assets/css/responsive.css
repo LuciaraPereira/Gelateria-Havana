@@ -3,6 +3,10 @@
  } 
 
 @media (max-width: 768px) {
+    
+    .span-footer {
+    font-size: 10px;
+    }
 
   
   .motion {
@@ -30,7 +34,7 @@
     display: block;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
-    padding: 0.5rem;
+    padding: 5px;
   }
 
   .tabela-curiosidades tbody td {
@@ -55,25 +59,26 @@
   }
 
   .produto {
-    max-width: 200px;
-    max-height: 200px;
-    margin: 2px 5px;
+    max-width: 150px;
+    max-height: 150px;
+    margin: 2px 3px;
   }	
 
   figcaption p {
-    font-size: 7px;
-  
+    font-size: 5px;
+    line-height: 1.2;
+    margin: 2px;
   }	
 
   figcaption h3{
-    font-size: 10px
+    font-size: 6px
   }
 
 
   .footer-container {
-    font-size: 13px;
-    /* flex-direction: column; */
-    align-items: center;
+    font-size: 16px;
+    line-height: 1.6;
+    flex-direction: column;
     text-align: center;
   }
 
@@ -132,13 +137,13 @@
     display: block;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
-    padding: 0.5rem;
+    padding: 5px;
   }
 
   .tabela-curiosidades td {
     display: block;
     text-align: left;
-    padding: 0.3rem 0;
+    padding: 0;
     position: relative;
   }
 
@@ -190,7 +195,7 @@
       }
 
       .logo-responsivo{
-        margin: 20px 30px;
+        margin: 20px 0;
       }
 
       .navegacao-responsivo {
@@ -225,7 +230,7 @@
 
       button.dropbtn{
           color: #3a1f1f;
-          /* font-size: 20px; */
+          font-size: 20px;
           font-weight: 500;
           background-color: #FFBBB5;
           padding: 5px;
@@ -296,6 +301,16 @@
   .sobre-container {
     margin: 0 2px;
     padding: 5px;
+  }
+  
+  .cookie-banner p {
+    font-size: 14px;
+    padding: 0 20px;
+  }
+
+  .cookie-banner button {
+    width: 100%;
+    max-width: 180px;
   }
 
 }

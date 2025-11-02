@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const banner = document.getElementById("cookie-banner");
+
+  if (!localStorage.getItem("cookieConsent")) {
+    banner.style.display = "block";
+  }
+
+  document.getElementById("accept-cookies").addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+  });
+
+  document.getElementById("decline-cookies").addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "declined");
+    banner.style.display = "none";
+  });
+});
+
 // Dropdown desktop
 const dropDesktopBtn = document.getElementById('btndrop-desktop');
 const dropdownDesktop = document.getElementById('dropdown-desktop');

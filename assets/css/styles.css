@@ -13,6 +13,66 @@ body {
   a que tava #FFF2F1*/
 }
 
+.btn-delivery {
+  position: fixed;
+  bottom: 60px;     /* Distância do rodapé */
+  right: 0 ;      /* Distância da lateral direita */
+  z-index: 1000;    /* Fica acima de outros elementos */
+  background-color: transparent;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.btn-delivery:hover {
+  transform: scale(1.05);
+}
+
+/* Ajuste da imagem dentro do botão */
+.btn-delivery img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FFBBB5;
+  color: #4F2819;
+  padding: 20px 10px;
+  text-align: center;
+  z-index: 9999;
+  display: none; /* será ativado pelo JS */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cookie-banner button {
+  padding: 10px 25px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#accept-cookies {
+  background-color: #4F2819; /* verde */
+  color: white;
+}
+
+#decline-cookies {
+  background-color: #4F2819; /* vermelho */
+  color: white;
+}
+
 .navbar {
   background-color: #FFBBB5;
   color: #4F2819;
@@ -43,13 +103,14 @@ body {
 .nav-links a {
   text-decoration: none;
   color: #3a1f1f;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 500;
 }
 
 button.dropbtn:hover,
 .nav-links a:hover {
   color: #682b13;
+  font-weight:bold;
 }
 
 img {
@@ -60,7 +121,7 @@ img {
 
 button.dropbtn {
   color: #3a1f1f;
-  font-weight: 500;
+  font-size: 20px;
   background-color: #FFBBB5;
   padding: 5px;
   border: none;
@@ -72,6 +133,7 @@ button.dropbtn {
   position: relative;
   overflow: hidden;
   width: 100%;
+  max-height: 400px;
   display: flex;
   justify-content: center;
   pointer-events: none;
@@ -198,13 +260,13 @@ button.next {
 }
 
 .produto h3 {
-  font-size: 1.2rem;
+  font-size: 25px;
   margin: 0.5rem 0;
   color: #FFBBB5
 }
 
 .produto p {
-  font-size: 0.95rem;
+  font-size: 15px;
 }
 
 h1 {
@@ -240,7 +302,6 @@ p {
 text {
   font-family: 'Arial', sans-serif;
   color: #4F2819;
-  /* display: center; */
   justify-content: center;
   /* horizontal */
   align-items: center;
@@ -260,50 +321,49 @@ ul {
 
 footer {
   display: flex;
-  background-color: #4F2819;
+  background-color: #814832;
   color: white;
-  padding: 30px;
-  padding-top: 40px;
+  padding: 10px;
   font-family: 'Arial', sans-serif;
-  min-height: 300px;
   /* bottom: 0; */
+  min-height: 300px;
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
+  /* padding: 20px; */
   flex: 1 1 200px;
   min-width: 200px;
-  font-size: 14px;
+  font-size: 20px;
   align-items: center;
   box-sizing: border-box; /* garante que o padding conte dentro da largura */
-  gap: 40px;
+  gap: 20px;
 }
 
 .footer-logo img {
-  width: 160px;
-  height: auto;
+ 
+  max-height: 250px;
+  max-width: 250px;
+  /* padding: 50px 0; */
   margin-bottom: 20px;
-  text-align: center;
-  /* max-width: 150px; */
+  filter: drop-shadow(0 0px 10px rgb(219, 109, 109))
+
 }
 
 .logo-footer {
-  max-width: 100%;
-  height: auto;
-  
+   align-items: center;
+  text-align: center;
 }
 
 .footer-section,
 .footer-location {
   max-width: 250px;
-  pad: 0;
+  padding: 0;
 }
 
-.footer-section h4,
-.footer-location h4 {
+.footer-section  .footer-location {
   margin-bottom: 10px;
   font-size: 16px;
 }
@@ -311,7 +371,7 @@ footer {
 .footer-section p,
 .footer-location p {
   margin: 4px 0;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .footer-section p em {
@@ -467,7 +527,7 @@ footer {
   transition: 0.3s;
   align-items: center;
   display: block;
-  margin: 0 50px;
+  margin: 0 65px;
 }
 
 .botao:hover {
@@ -500,24 +560,46 @@ footer {
 }
 
 .icone-bg {
-  background-color: #8B0000;
-  border-radius: 50%;
+  /* background-color: #8B0000; */
+  /* border-radius: 50%;
   width: 70px;
-  height: 70px;
+  height: 70px; */
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   flex-shrink: 0;
+  cursor:pointer
 }
 
-.icone-bg img {
-  width: 30px;
-  height: 30px;
+ .icone-bg i {
+  font-size: 40px;
+  color: #4d2323;
+  
+} 
+
+.icone-bg i:hover {
+  color: #FFBBB5;
+}
+
+
+.btn-forncedor{
+  background-color: #4d2323;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 20px;
+  border-radius: 40px;
+  transition: 0.3s;
+  align-items: center;
   display: block;
-  max-width: 100%;
-  height: auto;
+  margin: 0 auto;
+  cursor:pointer
+}
+
+.btn-forncedor:hover {
+  color: #FFBBB5;
 }
 
 .curiosidades {
@@ -558,14 +640,15 @@ footer {
 
 .tabela-curiosidades th,
 .tabela-curiosidades td {
-  padding: 0px;
+  padding: 0;
   word-break: break-word;
-  font-size: 2rem;
+  font-size: 28px;
 }
 
 .tabela-curiosidades thead th {
   color: #4f2819;
-  font-size: 2rem;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .tabela-curiosidades tbody td:nth-child(1) {
@@ -622,8 +705,7 @@ footer {
   cursor: pointer;
 }
 
-span {
-  font-weight: bold;
-  font-size: 14px;
+ span {
+  font-size: 18px;
 
 }
