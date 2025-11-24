@@ -1,68 +1,193 @@
+// --- CONFIGURAÇÃO INICIAL E BANNER DE COOKIES ---
 document.addEventListener("DOMContentLoaded", function () {
-  const banner = document.getElementById("cookie-banner");
+    const banner = document.getElementById("cookie-banner");
 
-  if (!localStorage.getItem("cookieConsent")) {
-    banner.style.display = "block";
-  }
+    // Usa sessionStorage para persistência na sessão atual (se o usuário fechar a aba)
+    if (!localStorage.getItem("cookieConsent")) {
+        banner.style.display = "block";
+    }
 
-  document.getElementById("accept-cookies").addEventListener("click", function () {
-    localStorage.setItem("cookieConsent", "accepted");
-    banner.style.display = "none";
-  });
+    // Aceitar Cookies
+    document.getElementById("accept-cookies").addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "accepted");
+        banner.style.display = "none";
+    });
 
-  document.getElementById("decline-cookies").addEventListener("click", function () {
-    localStorage.setItem("cookieConsent", "declined");
-    banner.style.display = "none";
-  });
+    // Recusar Cookies
+    document.getElementById("decline-cookies").addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "declined");
+        banner.style.display = "none";
+    });
+    
+    // Inicia a função de controle de Dropdown/Menu após o DOM estar pronto
+    setupNavigation();
+    setupSobreToggle();
 });
 
-// Dropdown desktop
+
+// --- VARIÁVEIS DE NAVEGAÇÃO ---
 const dropDesktopBtn = document.getElementById('btndrop-desktop');
 const dropdownDesktop = document.getElementById('dropdown-desktop');
-
-// Dropdown mobile
 const dropMobileBtn = document.getElementById('btndrop-mobile');
 const dropdownMobile = document.getElementById('dropdown-mobile');
+const menuIcon = document.getElementById('icon-menu');
+const navegacaoMenu = document.getElementById('links-nav');
 
-if (dropDesktopBtn && dropdownDesktop) {
-  dropDesktopBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // impede o clique de fechar imediatamente
-    dropdownDesktop.classList.toggle('show');
-  });
+
+// Função principal de setup de navegação (Chamada dentro de DOMContentLoaded)
+function setupNavigation() {
+    
+    // --- LÓGICA DO DROPDOWN (DESKTOP E MOBILE) ---
+    
+    const toggleDropdown = (button, dropdown) => {
+        const isShown = dropdown.classList.toggle('show');
+        // Acessibilidade: Atualiza o estado do botão para leitores de tela (WCAG 4.1.2)
+        button.setAttribute('aria-expanded', isShown);
+    };
+
+    if (dropDesktopBtn && dropdownDesktop) {
+        dropDesktopBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown(dropDesktopBtn, dropdownDesktop);
+        });
+        // Configura o estado inicial de ARIA
+        dropDesktopBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (dropMobileBtn && dropdownMobile) {
+        dropMobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown(dropMobileBtn, dropdownMobile);
+        });
+        // Configura o estado inicial de ARIA
+        dropMobileBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    // --- FECHAMENTO GLOBAL (CLIQUE FORA) ---
+    document.addEventListener('click', (e) => {
+        if (dropDesktopBtn && dropdownDesktop && !dropDesktopBtn.contains(e.target) && !dropdownDesktop.contains(e.target)) {
+            dropdownDesktop.classList.remove('show');
+            dropDesktopBtn.setAttribute('aria-expanded', 'false');
+        }
+        if (dropMobileBtn && dropdownMobile && !dropMobileBtn.contains(e.target) && !dropdownMobile.contains(e.target)) {
+            dropdownMobile.classList.remove('show');
+            dropMobileBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // --- CORREÇÃO CRÍTICA WCAG 1.4.13 (TECLA ESCAPE) ---
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            
+            // 1. Fecha Dropdown Desktop
+            if (dropdownDesktop && dropdownDesktop.classList.contains('show')) {
+                dropdownDesktop.classList.remove('show');
+                dropDesktopBtn.setAttribute('aria-expanded', 'false');
+                e.preventDefault(); // Impede o navegador de voltar/sair
+                e.stopPropagation(); // Impede que o evento suba
+            }
+            
+            // 2. Fecha Dropdown Mobile
+            if (dropdownMobile && dropdownMobile.classList.contains('show')) {
+                dropdownMobile.classList.remove('show');
+                dropMobileBtn.setAttribute('aria-expanded', 'false');
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            // 3. Fecha Menu Hambúrguer (se estiver ativo)
+            if (navegacaoMenu && navegacaoMenu.classList.contains('ativo')) {
+                navegacaoMenu.classList.remove('ativo');
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+    });
+
+    // --- MENU HAMBÚRGUER RESPONSIVO ---
+    if (menuIcon && navegacaoMenu) {
+        // Acessibilidade: Adiciona ARIA para indicar o estado do menu (WCAG 4.1.2)
+        menuIcon.setAttribute('aria-expanded', 'false');
+        
+        menuIcon.addEventListener('click', () => {
+            const isExpanded = navegacaoMenu.classList.toggle('ativo');
+            menuIcon.setAttribute('aria-expanded', isExpanded);
+        });
+    }
 }
 
-if (dropMobileBtn && dropdownMobile) {
-  dropMobileBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdownMobile.classList.toggle('show');
-  });
+
+// --- TOGGLE DA SEÇÃO SOBRE ---
+function setupSobreToggle() {
+    const toggleBtn = document.getElementById('toggleBtn');
+    const texto = document.getElementById('textoSobre');
+    
+    if (toggleBtn && texto) {
+        // Configuração inicial de ARIA (WCAG 4.1.2)
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        
+        toggleBtn.addEventListener('click', () => {
+            const isExpanded = texto.classList.toggle('expandido');
+            
+            // Atualiza o texto do botão
+            toggleBtn.textContent = isExpanded ? 'Ver menos' : 'Ver mais';
+            
+            // Atualiza o estado ARIA
+            toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+    }
 }
 
-// Fecha os dropdowns ao clicar fora
-document.addEventListener('click', (e) => {
-  // Fecha dropdown desktop se clicar fora
-  if (!dropDesktopBtn.contains(e.target) && !dropdownDesktop.contains(e.target)) {
-    dropdownDesktop.classList.remove('show');
-  }
 
-  // Fecha dropdown mobile se clicar fora
-  if (!dropMobileBtn.contains(e.target) && !dropdownMobile.contains(e.target)) {
-    dropdownMobile.classList.remove('show');
-  }
+// --- CARROSSEL DE IMAGENS ---
+// Usa DOMContentLoaded, pois window.onload é chamado apenas uma vez e pode sobrescrever outras chamadas.
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // O código do carrossel foi movido para dentro do DOMContentLoaded
+    // para garantir que os elementos estejam disponíveis.
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const slidesContainer = document.querySelector('.slides');
+
+    const showSlide = (index) => {
+        if (totalSlides === 0) return; // Segurança contra carrossel vazio
+
+        if (index >= totalSlides) currentIndex = 0;
+        else if (index < 0) currentIndex = totalSlides - 1;
+        else currentIndex = index;
+
+        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Melhoria de Acessibilidade: Anunciar qual slide está visível (WCAG 4.1.2)
+        slidesContainer.setAttribute('aria-live', 'polite'); // Garante que o leitor de tela leia as mudanças
+        // Ocultar slides não visíveis para leitores de tela
+        slides.forEach((slide, i) => {
+            slide.setAttribute('aria-hidden', i !== currentIndex);
+        });
+    };
+
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+
+    if (nextBtn && prevBtn) {
+        // CORREÇÃO WCAG 1.1.1/2.4.4: Adiciona rótulo acessível
+        prevBtn.setAttribute('aria-label', 'Slide Anterior'); 
+        nextBtn.setAttribute('aria-label', 'Próximo Slide'); 
+
+        // Seu código de listeners
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+        });
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+        });
+    }
+
+    showSlide(0);
 });
 
-// Menu hambúrguer responsivo
-const menu = document.getElementById('icon-menu');
-const navegacao = document.getElementById('links-nav');
-
-if (menu && navegacao) {
-  menu.addEventListener('click', () => {
-    navegacao.classList.toggle('ativo');
-  });
-}
-
-
-// botão de ver mais/menos
+// botÃ£o de ver mais/menos
 const imagens = document.querySelectorAll('.produtos-img_fundo');
 const btn = document.getElementById('verMaisBtn');
 const imagensPorPagina = 10;
@@ -95,47 +220,338 @@ if (btn && imagens.length > 0) {
   });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Define a string de texto a ser procurada no label
+    const LABEL_TEXT = 'Página Inteira';
+
+    // Cria um intervalo para verificar periodicamente se o label foi carregado
+    const correcaoInterval = setInterval(corrigirLabelInjetado, 500); // Verifica a cada 500ms
+
+    function corrigirLabelInjetado() {
+        // 1. Localiza o elemento <label> que contém o texto específico
+        const allLabels = document.querySelectorAll('label.aifnmjmchg-cursor-pointer');
+        let targetLabel = null;
+
+        // Itera sobre todos os labels com a classe específica do widget
+        allLabels.forEach(label => {
+            // Verifica se o texto interno do label corresponde ao que procuramos
+            if (label.textContent.trim().includes(LABEL_TEXT)) {  // Mudamos de === para includes para flexibilidade
+                targetLabel = label;
+            }
+        });
+
+        if (targetLabel) {
+            // 2. Cria o elemento <input type="checkbox">
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'pagina-inteira-checkbox'; // Dá um nome para o formulário
+            
+            // Opcional: Adiciona um ID para melhor acessibilidade, se necessário
+            checkbox.id = 'pagina-inteira-toggle';
+            
+            // 3. Injeta o checkbox DENTRO do <label> antes do texto
+            targetLabel.prepend(checkbox);
+            
+            // Opcional: Garante que o texto original esteja na mesma linha se for um checkbox
+            targetLabel.style.whiteSpace = 'nowrap';
+            
+            console.log("Correção de acessibilidade 3.3.2 aplicada: Checkbox injetado no label 'Página Inteira'.");
+            
+            // Limpa o temporizador assim que o checkbox for injetado
+            clearInterval(correcaoInterval);
+        }
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Rótulo que será lido pelo leitor de tela (WCAG 2.4.4)
+    const ARIA_LABEL_BUTTON = "Anexar Imagem";
+
+    function corrigirBotoesVazios() {
+        // Localiza o botão que contém a classe específica do ícone 'fa-image'
+        // Este seletor procura por um botão que contém o SVG com a classe 'fa-image'
+        const emptyButton = document.querySelector('button .fa-image');
+        
+        // O seletor retorna o elemento SVG. Precisamos do elemento PAI (<button>).
+        const targetButton = emptyButton ? emptyButton.closest('button') : null;
+
+        if (targetButton) {
+            // 1. Injeta o rótulo programático ARIA-LABEL no botão
+            // Isso resolve o erro "Empty button" para leitores de tela
+            targetButton.setAttribute('aria-label', ARIA_LABEL_BUTTON); 
+            
+            console.log("Correção de acessibilidade 1.1.1/2.4.4 aplicada: aria-label adicionado ao botão de imagem.");
+            
+            // Resolve o erro de Conteúdo Não Textual:
+            // O SVG já tem aria-hidden="true" e foco, o que está tecnicamente correto,
+            // mas garantir o rótulo no botão é essencial.
+
+            // Para o temporizador se a correção for aplicada
+            clearInterval(correcaoInterval);
+        }
+    }
+
+    // Tenta aplicar a correção a cada 500ms, garantindo que funcione
+    // após o widget de terceiros injetar o botão.
+    const correcaoInterval = setInterval(corrigirBotoesVazios, 500);
+
+    // Limite o intervalo para parar após 10 segundos.
+    setTimeout(() => {
+        clearInterval(correcaoInterval);
+    }, 10000);
+
+});
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Define a string de texto a ser procurada no label
+    const LABEL_TEXT = 'Página Inteira';
+
+    function corrigirLabelInjetado() {
+        // 1. Localiza o elemento <label> que contém o texto específico
+        // Usamos querySelectorAll e iteramos para garantir que achamos o texto exato
+        
+        // Seletor que busca todos os labels com a classe específica do widget
+        const allLabels = document.querySelectorAll('label.aifnmjmchg-cursor-pointer'); 
+        let targetLabel = null;
+
+        // Itera sobre os labels para encontrar o que tem o texto 'Página Inteira'
+        allLabels.forEach(label => {
+            // Verifica se o texto interno do label corresponde ao que procuramos
+            if (label.textContent.trim() === LABEL_TEXT) {
+                targetLabel = label;
+            }
+        });
+
+        if (targetLabel) {
+            // 2. Cria o elemento <input type="checkbox">
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'pagina-inteira-checkbox'; 
+            checkbox.id = 'pagina-inteira-toggle'; // Adiciona ID para ser alvo
+            
+            // 3. Injeta o checkbox DENTRO do <label> (prepend insere no início)
+            // Isso cria a Associação Implícita: <label><input>Texto</label>
+            targetLabel.prepend(checkbox);
+            
+            console.log("Correção de acessibilidade 3.3.2 aplicada: Checkbox injetado no label 'Página Inteira'.");
+            
+            // Limpa o temporizador se o elemento for encontrado
+            clearInterval(correcaoInterval);
+        }
+    }
+
+    // Tenta aplicar a correção a cada 500ms
+    const correcaoInterval = setInterval(corrigirLabelInjetado, 500);
+
+    // Limite o intervalo para parar após 10 segundos.
+    setTimeout(() => {
+        clearInterval(correcaoInterval);
+    }, 10000);
+});
 
 
-//carossel de imagens
-window.onload = () => {
-  let currentIndex = 0;
-  const slides = document.querySelectorAll('.slide');
-  const totalSlides = slides.length;
-  const slidesContainer = document.querySelector('.slides');
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Rótulo claro que será lido pelo leitor de tela (WCAG 3.3.2)
+    const ARIA_LABEL_TEXT = "Anexar Imagem";
 
-  const showSlide = (index) => {
-    if (index >= totalSlides) currentIndex = 0;
-    else if (index < 0) currentIndex = totalSlides - 1;
-    else currentIndex = index;
+    function corrigirAltSuspeito() {
+        // 1. Localiza a imagem pelo atributo alt="coin image"
+        const coinImage = document.querySelector('img[alt="coin image"]');
 
-    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-  };
+        if (coinImage) {
+            // 2. Aplica a correção: Define o alt como nulo (alt="")
+            // Isso sinaliza ao leitor de tela que ele deve ignorar a imagem,
+            // resolvendo o alerta de "Suspicious alternative text".
+            coinImage.setAttribute('alt', ''); 
+            
+            console.log("Correção de acessibilidade 1.1.1 aplicada: alt da imagem 'coin' definido como nulo.");
+            
+            // Para o temporizador se a correção for aplicada
+            clearInterval(correcaoInterval);
+        }
+    }
 
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
+    // Tenta aplicar a correção a cada 500ms
+    const correcaoInterval = setInterval(corrigirAltSuspeito, 500);
 
-  if (nextBtn && prevBtn) {
-    nextBtn.addEventListener('click', () => {
-      showSlide(currentIndex + 1);
+    // Limite o intervalo para parar após 10 segundos.
+    setTimeout(() => {
+        clearInterval(correcaoInterval);
+    }, 10000);
+
+});
+
+// --- LÓGICA DE VALIDAÇÃO E MODAL ---
+
+// 1. Associa a validação ao evento de SUBMIT do formulário
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    // Previne o envio padrão do formulário (que sairia da página)
+    event.preventDefault(); 
+    validateAndConfirm();
+});
+
+function validateAndConfirm() { 
+    let valid = true; 
+    const form = document.getElementById('contactForm');
+    
+    // Esconder todas as mensagens de erro e limpar ARIA
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+        const inputId = el.id.replace('-error', '');
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.setAttribute('aria-invalid', 'false');
+        }
     });
 
-    prevBtn.addEventListener('click', () => {
-      showSlide(currentIndex - 1);
-    });
-  }
+    // -------------------------------------------------------------------
+    // Validações
+    // -------------------------------------------------------------------
+    
+    // Nome
+    if (!document.getElementById('Nome').value.trim()) { 
+        document.getElementById('nome-error').style.display = 'block'; 
+        document.getElementById('Nome').setAttribute('aria-invalid', 'true');
+        valid = false; 
+    } 
+    
+    // E-mail (com validação básica de formato)
+    const emailInput = document.getElementById('email');
+    if (!emailInput.value.trim() || !/\S+@\S+\.\S+/.test(emailInput.value)) { 
+        document.getElementById('email-error').style.display = 'block'; 
+        emailInput.setAttribute('aria-invalid', 'true');
+        valid = false; 
+    } 
+    
+    // Mensagem
+    if (!document.getElementById('msg').value.trim()) {
+        document.getElementById('msg-error').style.display = 'block'; 
+        document.getElementById('msg').setAttribute('aria-invalid', 'true');
+        valid = false; 
+    } 
+    
+    // -------------------------------------------------------------------
+    
+    if (valid) { 
+        const summary = `
+            Nome: ${document.getElementById('Nome').value}<br>
+            Email: ${document.getElementById('email').value}<br>
+            Telefone: ${document.getElementById('tel').value || 'Não fornecido'}<br>
+            Mensagem: ${document.getElementById('msg').value}
+        `; 
+        document.getElementById('summary').innerHTML = summary; 
+        document.getElementById('confirmationModal').style.display = 'block'; 
+        
+        // CORREÇÃO WCAG 2.1.1/4.1.2: Move o foco para o conteúdo do modal
+        document.getElementById('modalContent').focus();
 
-  showSlide(0);
-};
+    } else {
+        // Se houver erro, move o foco para o primeiro campo inválido
+        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) {
+             firstInvalid.focus();
+        }
+    }
+} 
 
+// Função que envia o formulário assincronamente (chamada pelo modal)
+async function submitFormAsync(formId) { 
+    // CORREÇÃO DO BUG: Captura o formulário pelo ID passado
+    const form = document.getElementById(formId);
+    
+    if (!form) {
+        console.error("Erro: Formulário com ID " + formId + " não encontrado.");
+        return;
+    }
+    
+    const formData = new FormData(form);
+    
+    // Fecha o modal de confirmação
+    closeModal();
 
-  const toggleBtn = document.getElementById('toggleBtn');
-  const texto = document.getElementById('textoSobre');
+    // Remove mensagens de feedback antigas
+    document.getElementById('success-feedback')?.remove();
+    document.getElementById('loading-feedback')?.remove();
 
-  toggleBtn.addEventListener('click', () => {
-    texto.classList.toggle('expandido');
-    toggleBtn.textContent = texto.classList.contains('expandido') ? 'Ver menos' : 'Ver mais';
-  });
+    // Feedback de Carregamento
+    const formContainer = form.parentElement;
+    const loadingMessage = document.createElement('p');
+    loadingMessage.textContent = 'Enviando... Aguarde.';
+    loadingMessage.style.textAlign = 'center';
+    loadingMessage.style.fontWeight = 'bold';
+    loadingMessage.id = 'loading-feedback';
+    formContainer.prepend(loadingMessage); 
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                // Necessário para que FormSubmit retorne sem redirecionar
+                'X-Requested-With': 'XMLHttpRequest' 
+            }
+        });
+
+        if (response.ok) {
+            showSuccess(form, formContainer, loadingMessage);
+        } else {
+            throw new Error('Erro ao enviar o formulário.');
+        }
+    } catch (error) {
+        console.error('Erro de envio:', error);
+        loadingMessage.textContent = 'ERRO: Não foi possível enviar. Verifique sua conexão.';
+        loadingMessage.style.color = 'red';
+        setTimeout(() => loadingMessage.remove(), 5000);
+    }
+}
+
+// Função para exibir sucesso e limpar o formulário
+function showSuccess(form, formContainer, loadingElement) {
+    if (loadingElement) loadingElement.remove(); 
+    
+    form.reset(); 
+
+    const successMessage = document.createElement('p');
+    successMessage.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+    successMessage.style.color = 'green';
+    successMessage.style.fontWeight = 'bold';
+    successMessage.id = 'success-feedback';
+    
+    formContainer.prepend(successMessage);
+    
+    // Remove a mensagem após 5 segundos
+    setTimeout(() => successMessage.remove(), 5000);
+}
+
+// Função para fechar o modal
+function closeModal() { 
+    document.getElementById('confirmationModal').style.display = 'none'; 
+    // Retorna o foco ao botão Enviar original
+    const sendButton = document.querySelector('.botao');
+    if (sendButton) {
+        sendButton.focus(); 
+    }
+}
+
+// -------------------------------------------------------------------
+// AJUSTES DE ACESSIBILIDADE GLOBAIS
+// -------------------------------------------------------------------
+
+// CORREÇÃO WCAG 2.1.1: Permite fechar o modal com a tecla ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && document.getElementById('confirmationModal').style.display === 'block') {
+        closeModal();
+    }
+});
+
+// Seu código original para correções de widgets (mantido para compatibilidade)
+document.addEventListener('DOMContentLoaded', function() {
+    // Nota: O código de correção de widgets deve ser colado aqui
+});

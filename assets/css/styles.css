@@ -7,13 +7,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'ABeeZee', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   background-color: #FFF2F1;
   /*#f2d8d7 outra opção de cor de fundo
   a que tava #FFF2F1*/
 }
 
-.btn-delivery {
+
+
+.btn-delivery img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
   position: fixed;
   bottom: 60px;     /* Distância do rodapé */
   right: 0 ;      /* Distância da lateral direita */
@@ -21,17 +26,6 @@ body {
   background-color: transparent;
   border-radius: 10px;
   transition: transform 0.3s ease;
-}
-
-.btn-delivery:hover {
-  transform: scale(1.05);
-}
-
-/* Ajuste da imagem dentro do botão */
-.btn-delivery img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
 }
 
 .cookie-banner {
@@ -197,6 +191,7 @@ button.next {
 .texto-apresentacao p {
   padding: 0 40px;
   top: 0;
+  font-weight: 600;
 }
 
 .mais-vendidos {
@@ -262,7 +257,7 @@ button.next {
 .produto h3 {
   font-size: 25px;
   margin: 0.5rem 0;
-  color: #FFBBB5
+  color: #FFBBB5;
 }
 
 .produto p {
@@ -327,27 +322,28 @@ footer {
   font-family: 'Arial', sans-serif;
   /* bottom: 0; */
   min-height: 300px;
+  flex-direction: column;
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   /* padding: 20px; */
   flex: 1 1 200px;
   min-width: 200px;
   font-size: 20px;
   align-items: center;
+  text-align: center;
   box-sizing: border-box; /* garante que o padding conte dentro da largura */
   gap: 20px;
 }
 
 .footer-logo img {
- 
-  max-height: 250px;
-  max-width: 250px;
+  max-height: 200px;
+  max-width: 200px;
   /* padding: 50px 0; */
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   filter: drop-shadow(0 0px 10px rgb(219, 109, 109))
 
 }
@@ -368,14 +364,25 @@ footer {
   font-size: 16px;
 }
 
+.footer-section a{
+   text-align: center;
+}
+
+
 .footer-section p,
 .footer-location p {
   margin: 4px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .footer-section p em {
   font-style: italic;
+}
+
+footer h2 {
+  font-size: 18px; 
+  color: #FFBBB5;
+    
 }
 
 .small-text {
@@ -395,6 +402,14 @@ footer {
 
 .footer-social a:hover {
   color: #FFBBB5;
+}
+
+.span_footer{
+   width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
+    margin-top: 0.5rem;
 }
 
 
@@ -498,7 +513,7 @@ footer {
 }
 
 .form1 p {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
 }
 
@@ -515,6 +530,27 @@ footer {
   border-radius: 5px;
 }
 
+.form1 input[type="text"],
+.form1 input[type="tel"],
+.form1 input[type="email"],
+.form1 textarea { /* Incluído textarea */
+  width: 100%; /* Ajustado para 100% para melhor responsividade */
+  padding: 8px; /* Aumentado padding */
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+/* 2.4.7 FOCO VISÍVEL (CRÍTICO!) */
+.form1 input:focus,
+.form1 textarea:focus,
+.botao:focus {
+    outline: 2px solid #762d2d; /* Adiciona um contorno forte */
+    outline-offset: 2px;
+    border-color: #762d2d;
+    box-shadow: 0 0 5px rgba(118, 45, 45, 0.5);
+}
 /* Estilização do botão */
 .botao {
   cursor: pointer;
@@ -522,18 +558,44 @@ footer {
   color: white;
   font-weight: bold;
   border: none;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   transition: 0.3s;
-  align-items: center;
-  display: block;
-  margin: 0 65px;
+  
+  /* 2.4.3 Centralização Correta do Botão */
+  display: block; 
+  margin: 20px auto; 
+  width: fit-content;
 }
 
 .botao:hover {
   background-color: #762d2d;
 }
 
+/* Estilos para o Modal de Confirmação (Ajuste de Foco) */
+#modalContent {
+    outline: none; /* remove o outline feio quando JS move o foco */
+}
+
+/* === CORREÇÃO DE ACESSIBILIDADE: RESET VISUAL DO FIELDSET === */
+
+/* Remove a borda padrão do fieldset */
+.form1 fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 20px 0; /* Adiciona espaçamento após o grupo */
+    width: 100%;
+}
+
+/* Estiliza o legend para parecer um título normal */
+.form1 legend {
+    font-size: 1.2rem; /* Tamanho do título da seção */
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 0;
+    display: block; /* Garante que o legend ocupe a largura total */
+    border: none; /* Remove a borda padrão do legend */
+}
 
 
 
@@ -598,6 +660,16 @@ footer {
   cursor:pointer
 }
 
+/* Ajuste para mensagens de erro: Cor forte e bom contraste */
+.error-message {
+    color: #8B0000; /* Vermelho escuro para contraste */
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: -10px; /* Alinha com o campo acima */
+    margin-bottom: 10px;
+    display: block; /* Garante que o span fique em sua própria linha */
+}
+
 .btn-forncedor:hover {
   color: #FFBBB5;
 }
@@ -645,7 +717,14 @@ footer {
   font-size: 28px;
 }
 
-.tabela-curiosidades thead th {
+caption {
+  margin-bottom: 15px;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.tabela-curiosidades thead th{
   color: #4f2819;
   font-size: 28px;
   font-weight: bold;
@@ -687,6 +766,7 @@ footer {
   max-height: 300px;
   overflow: hidden;
   transition: max-height 0.4s ease;
+  font-weight: 500;
 }
 
 .texto-sobre.expandido {
@@ -709,3 +789,53 @@ footer {
   font-size: 18px;
 
 }
+
+/* --- CORREÇÃO DE ESPAÇAMENTO WCAG 1.4.12 (Nível AA) --- */
+
+/* Seletores de texto principal e áreas de formulário */
+.texto-apresentacao p, 
+.texto-sobre p,
+.form1 p,
+.form1 label,
+.form1 legend {
+    /* 1. ESPAÇAMENTO ENTRE PARÁGRAFOS (2x o tamanho da fonte) */
+    margin-top: 0;
+    margin-bottom: 2em; 
+    
+    /* 2. ESPAÇAMENTO ENTRE LINHAS (1.5x o tamanho da fonte - Boa Prática) */
+    line-height: 1.5; 
+
+    /* 3. ESPAÇAMENTO ENTRE LETRAS (0.12x o tamanho da fonte) */
+    letter-spacing: 0.12em; 
+
+    /* 4. ESPAÇAMENTO ENTRE PALAVRAS (0.16x o tamanho da fonte) */
+    word-spacing: 0.16em; /* CORRIGIDO: Adicionado espaçamento mínimo entre palavras */
+}
+
+/* Regra para remover a margem do ÚLTIMO parágrafo de um bloco (limpeza) */
+.texto-apresentacao p:last-child,
+.texto-sobre p:last-child,
+.form1 p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- CORREÇÃO WCAG 1.4.10 (LARGURA E REDIMENSIONAMENTO) --- */
+
+/* 5. LARGURA DE BLOCOS DE TEXTO (Max 80 caracteres) */
+/* O 'ch' (caractere) é a unidade mais precisa para limitar a largura de leitura */
+.texto-apresentacao, 
+.texto-sobre {
+     /* AJUSTE PARA DEIXAR MAIS "ESPALHADO": */
+    /* Remove a centralização automática e usa padding para preencher a tela */
+    margin-left: 20px; 
+    margin-right: 20px;
+    padding: 0 15px; /* Adiciona padding interno */
+    width: auto; /* Permite que o contêiner se expanda */
+}
+
+/* 6. CORREÇÃO CRÍTICA DE ZOOM (overflow-x) */
+/* Assumindo que a regra estava no seu CSS global, você deve removê-la de lá.
+   Se ela estivesse aqui, a regra seria:
+   body, html { overflow-x: visible !important; }
+   Ou simplesmente DELETAR a regra "overflow-x: hidden;" do seu CSS global.
+*/

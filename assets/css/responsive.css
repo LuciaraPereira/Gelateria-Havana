@@ -4,9 +4,18 @@
 
 @media (max-width: 768px) {
     
-    .span-footer {
-    font-size: 10px;
+    .span_footer span{
+    font-size: 16px;
     }
+
+  .small-text em{
+    margin: 0;
+  }
+
+  .logo img{
+    padding-left: 10px;
+    width: 80px;
+  }
 
   
   .motion {
@@ -80,6 +89,23 @@
     line-height: 1.6;
     flex-direction: column;
     text-align: center;
+    padding:0;
+    gap: 0;
+  }
+
+  .footer-container p {
+    padding:0;
+    font-size: 16px;
+  }
+
+  footer h2{
+    margin: 0;
+
+  }
+
+  .footer-logo img {
+     width: 100px;
+     margin-bottom:0;
   }
 
   .social-icon a {
@@ -311,6 +337,10 @@
   .cookie-banner button {
     width: 100%;
     max-width: 180px;
+  }
+
+  .span_footer span {
+    font-size: 15px;
   }
 
 }

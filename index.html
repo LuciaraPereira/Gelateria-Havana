@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <title>Gelateria Havana</title>
-  <meta name="keywords" content="gelateria,sorveteria havana, gelateria havana, gelato, sorvete artesanal,picolé,açaí,paletas,pote para viagem,self-service,comercio na praia grande">
   <meta name="author" content="Vivian-Gomes,Luciara Pereira e Sabrina Clemente">
   <meta name="robots" content="index, follow">
   <meta name="title" content="Gelateria Havana Praia Grande">
@@ -69,10 +68,15 @@
 <body>
     
   <div class="btn-delivery">
-  <a href="https://pedido.anota.ai/loja/sorveteria-havana?f=ms" target="_blank" title="Peça pelo Delivery Gelateria Havana">
-    <img src="/assets/images/anota-ai-gestor-de-pedidos-logo.avif" alt="Ícone de entrega Anotaí" title="Peça seu pedido aqui!">
+  <a href="https://www.instagram.com/gelateriahavanapg/" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Acesse nosso Instagram (abre em nova aba)">
+    <img src="/assets/images/instagram_fixo.svg" alt="" >
   </a>
 </div>
+
+
 <div id="cookie-banner" class="cookie-banner">
   <p>
     Este site utiliza cookies para melhorar sua experiência. Ao continuar, você concorda com nossa 
@@ -89,18 +93,19 @@
 
   <!-- Navbar desktop -->
   <header class="navbar">
-    <figure class="logo">
-      <img src="/assets/images/logo-havana.png" alt="Logo Gelateria Havana">
-    </figure>
+    <div class="logo">
+      <img  src="/assets/images/logo-havana.png" alt="">
+    </div>
 
     <nav class="nav-links">
       <ul>
         <li><a href="index.html">Início</a></li>
         <li>
           <div class="dropdown">
-            <button class="dropbtn" id="btndrop-desktop">
-              Cardápio <i class="fa fa-caret-down"></i>
-            </button>
+           <button class="dropbtn"id="btndrop-desktop"aria-expanded="false"aria-controls="dropdown-desktop">
+           Cardápio 
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
+          </button>
             <nav id="dropdown-desktop" class="dropdown-content">
               <a href="assets/paginas/gelatos.html">Gelatos</a>
               <a href="assets/paginas/picoles.html">Picolés</a>
@@ -118,9 +123,9 @@
   <!-- Navegação mobile -->
   <nav class="menu-responsivo">
     <div class="separando-logos">
-      <figure class="logo">
-        <img src="/assets/images/logo-havana.png" alt="Logo Gelateria Havana">
-      </figure>
+      <div class="logo">
+        <img src="/assets/images/logo-havana.png" alt="">
+      </div>
       <div class="menu" id="icon-menu"><i class="fas fa-bars"></i></div>
     </div>
 
@@ -153,22 +158,22 @@
     <div class="slider">
       <div class="slides">
         <div class="slide">
-          <img src="assets/images/slides1-passarela-frente-caixa.jpg" alt="foto de dentro da Gelateria Havana">
+          <img src="assets/images/slides1-passarela-frente-caixa.jpg" alt="Interior limpo e iluminado da Gelateria Havana, mostrando o balcão self-service de gelatos e a área de buffet.">
         </div>
         <div class="slide">
-          <img src="assets/images/slides2-passarela-frente-caixa.avif" alt="Vista do Balcão">
+          <img src="assets/images/slides2-passarela-frente-caixa.avif" alt="Vista interna da sorveteria, com balcão de buffet em granito, freezer de açaí e área de mesas prontas para o atendimento.">
         </div>
         <div class="slide">
-          <img src="assets/images/slide3-vistadedentro-para-fora.avif" alt="imagem3">
+          <img src="assets/images/slide3-vistadedentro-para-fora.avif" alt="Vista de dentro da loja, mostrando as mesas internas com vista para a orla marítima, coqueiros e praia.">
         </div>
         <div class="slide">
-          <img src="assets/images/slide4-vista-das-coberturas.avif"  alt="foto da entrada da gelateria Havana">
+          <img src="assets/images/slide4-vista-das-coberturas.avif"  alt="Vista do balcão de coberturas e caldas no sel-service da gelateria muitas cubas de diversos sabores marshmallows, chocolates e frutas">
         </div>
       </div>
 
       <!-- Botões de navegação -->
-      <button class="prev"> <i class="fa-solid fa-chevron-left"></i></button>
-      <button class="next"> <i class="fa-solid fa-chevron-right"></i> </button>
+      <button class="prev" aria-label="Slide Anterior"><i class="fa-solid fa-chevron-left"><span style="display:none;">|</span></i></button>
+      <button class="next" aria-label="Próximo Slide"><i class="fa-solid fa-chevron-right"><span style="display:none;">|</span></i> </button>
     </div>
 
 
@@ -195,97 +200,124 @@
 
       <div class="produtos-grid">
         <figure class="produto">
+          <a href="assets/paginas/gelatos.html" style="display: block" aria-label="Gelatos: Clique para Conhecer Mais">
           <img src="assets/images/sorvete-artesanal-galeria.jpg"
-            alt="foto de um gelato feito no self-service com caldas e confeitos">
+            alt="Gelato self-service com caldas e confeitos">
           <figcaption>
             <h3>Gelatos</h3>
-            <p><a href="assets/paginas/gelatos.html">Conheça Mais</a></p>
+            <p>Conheça Mais</p>
           </figcaption>
+          </a>
         </figure>
 
-        <figure class="produto">
-          <img src="assets/images/picoles-galeria.avif"
-            alt="foto de varios picoles de varios sabores vendidos um do lado do outro">
-          <figcaption>
-            <h3>Picolés</h3>
-            <p><a href="assets/paginas/picoles.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+<!-- ITEM 2: PICOLÉS (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/picoles.html" style="display: block; text-decoration: none;" aria-label="Picolés: Conheça mais sobre a coleção">
+            <img src="assets/images/picoles-galeria.avif"
+                alt="foto de varios picoles de varios sabores vendidos um do lado do outro">
+            <figcaption>
+                <h3>Picolés</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/Palletas-galeria.avif"
-            alt="foto de duas palletas estilo de picolé com recheio cremoso uma tem recheio de chocolate e por fora chocolate e a outra tem recheio de bombom de chocolate e por fora sorvete de chocolate branco">
-          <figcaption>
-            <h3>Paletas</h3>
-            <p><a href="assets/paginas/paletas.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 3: PALETAS (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/paletas.html" style="display: block; text-decoration: none;" aria-label="Paletas: Conheça mais sobre os sabores cremosos">
+            <img src="assets/images/Palletas-galeria.avif"
+                alt="foto de duas palletas estilo de picolé com recheio cremoso uma tem recheio de chocolate e por fora chocolate e a outra tem recheio de bombom de chocolate e por fora sorvete de chocolate branco">
+            <figcaption>
+                <h3>Paletas</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/milkshake-galeria.avif"
-            alt="foto de um copo de vidro com milk shake de morango dentro do copo e um sorvete de creme com um canudo de plastico">
-          <figcaption>
-            <h3>Milk Shake</h3>
-            <p><a href="assets/paginas/outros.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 4: MILK SHAKE (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/outros.html" style="display: block; text-decoration: none;" aria-label="Milk Shake: Veja as opções de sabores">
+            <img src="assets/images/milkshake-galeria.avif"
+                alt="foto de um copo de vidro com milk shake de morango dentro do copo e um sorvete de creme com um canudo de plastico">
+            <figcaption>
+                <h3>Milk Shake</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/petit-gateau-galeria.avif"
-            alt="foto de um petit gateau que é um bolo pequeno com com calda de chocolate e sorvete de creme em um prato azul" >
-          <figcaption>
-            <h3>Petit Gateau</h3>
-            <p><a href="assets/paginas/outros.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 5: PETIT GATEAU (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/outros.html" style="display: block; text-decoration: none;" aria-label="Petit Gateau: Saiba mais sobre essa sobremesa">
+            <img src="assets/images/petit-gateau-galeria.avif"
+                alt="foto de um petit gateau que é um bolo pequeno com com calda de chocolate e sorvete de creme" >
+            <figcaption>
+                <h3>Petit Gateau</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/bananasplit-galeria.avif"
-            alt="foto de um banana split que é uma sobremesa com banana, sorvete de creme, chocolate e calda de morango e chantilly com cerejas e canudos de baunilha" >
-          <figcaption>
-            <h3>Banana Split</h3>
-            <p><a href="assets/paginas/outros.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 6: BANANA SPLIT (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/outros.html" style="display: block; text-decoration: none;" aria-label="Banana Split: Descubra os detalhes dessa sobremesa">
+            <img src="assets/images/bananasplit-galeria.avif"
+                alt="foto de um banana split que é uma sobremesa com banana, sorvete de creme, chocolate e calda de morango e chantilly com cerejas e canudos de baunilha" >
+            <figcaption>
+                <h3>Banana Split</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/para-viagem-galeria.avif"
-            alt="foto de potes de sorvete para viagem na quantidade de 1,5 litros em vários sabores" >
-          <figcaption>
-            <h3>Para Viagem</h3>
-            <p><a href="assets/paginas/outros.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 7: POTE DE 1,5 LITROS (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/outros.html" style="display: block; text-decoration: none;" aria-label="Para Viagem: Conheça mais sobre Potes de 1,5 litros">
+            <img src="assets/images/para-viagem-galeria.avif"
+                alt="foto de potes de sorvete para viagem na quantidade de 1,5 litros em vários sabores" >
+            <figcaption>
+                <h3>Pote de 1,5 litros</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/cascao-galeria.avif"
-            alt="foto de um cascão de uma bola caprichada no sabor de pitaia na cor roxa forte com sementinhas pretas" >
-          <figcaption>
-            <h3>Casquinha e cascão</h3>
-            <p><a href="assets/paginas/outros.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 8: CASQUINHA E CASCÃO (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/outros.html" style="display: block; text-decoration: none;" aria-label="Casquinha e cascão: Veja opções de sabores">
+            <img src="assets/images/cascao-galeria.avif"
+                alt="foto de um cascão de uma bola no sabor da fruta pitaya na cor roxa forte" >
+            <figcaption>
+                <h3>Casquinha e cascão</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-        <figure class="produto">
-          <img src="assets/images/acai-galeria.avif"
-            alt="foto de um acai tradicional com frutas como banana, kiwi e morango e uma colher amarela" >
-          <figcaption>
-            <h3>Açaí</h3>
-            <p><a href="assets/paginas/outros.html">Conheça Mais</a></p>
-          </figcaption>
-        </figure>
+    <!-- ITEM 9: AÇAÍ (CORRIGIDO) -->
+    <figure class="produto">
+        <a href="assets/paginas/outros.html" style="display: block; text-decoration: none;" aria-label="Açaí: Conheça mais sobre as opções de açaí">
+            <img src="assets/images/acai-galeria.avif"
+                alt="foto de um acai tradicional com frutas como banana, kiwi e morango" >
+            <figcaption>
+                <h3>Açaí</h3>
+                <p>Conheça Mais</p>
+            </figcaption>
+        </a>
+    </figure>
 
-      </div>
+
     </div>
+  </div>
 
     <section id="sobre" class="sobre-container">
 
       <h2 class="sobre-container">Sobre</h2>
-      <img src="assets/images/nova_frente-da-gelateria-havana.avif" width="700" height="366" alt="fachada da gelateria com cadeiras na área externa" class="exterior">
+      <img src="assets/images/nova_frente-da-gelateria-havana.avif" width="700" height="366" alt="Fachada de esquina da Sorveteria Havana, vista à noite, com as placas iluminadas e mesas na calçada prontas para clientes." class="exterior">
         
         <div class="texto-sobre texto-colapsado" id="textoSobre">
 
-        <p class="titulo-sobre">Nossa História</p>
+        <h3 class="titulo-sobre">Nossa História</h3>
         <p>A Gelateria Havana nasceu em 2002 do sonho do casal Mônica e Antonio (Neto), que começou vendendo sorvetes
           industrializados. Com o tempo, Antonio se especializou em sorvetes artesanais, adquirindo uma pequena
           produtora
@@ -301,7 +333,7 @@
           mercado
           repleto de opções industrializadas.</p>
 
-        <p class="titulo-sobre">Missão e Motivação</p>
+        <h3 class="titulo-sobre">Missão e Motivação</h3>
         <p>A missão da Gelateria Havana é oferecer momentos de prazer e bem-estar por meio de produtos artesanais,
           feitos com ingredientes de verdade e cuidado em cada detalhe. Acreditamos que é possível saborear algo
           delicioso sem abrir mão da qualidade e de uma composição mais saudável.
@@ -321,17 +353,15 @@
 
       <h2>Curiosidades</h2>
  
-      <p>Você sabia que o gelato é diferente do sorvete? Aqui estão algumas curiosidades sobre essas duas delícias
-        geladas:</p>
-
-
         <div class="motions">
-          <img src="assets/images/gelato.png" alt="motion" class="motion">
-          <img src="assets/images/sorvete.png" alt="motion" class="motion">
+          <img src="assets/images/gelato.png" alt="" class="motion">
+          <img src="assets/images/sorvete.png" alt="" class="motion">
         </div>
 
 <div>
   <table class="tabela-curiosidades">
+    <caption>Você sabia que o gelato é diferente do sorvete? Aqui estão algumas curiosidades sobre essas duas delícias
+        geladas:</caption>
     <thead>
       <tr>
         <th>Gelato</th>
@@ -386,37 +416,29 @@
    <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="/assets/images/logo-havana.png" alt="Logo Gelateria Havana">
+        <img src="/assets/images/logo-havana.png" alt="">
       </div>
 
       <div class="footer-section">
         <ul>
           <li><a href="/index.html">Página Inicial</a></li>
-          <li><a href="/assets/paginas/gelatos.html">Gelatos e mais</a></li>
+          <li><a href="/assets/paginas/gelatos.html">Gelatos</a></li>
           <li><a href="/index.html#sobre">Sobre Nós</a></li>
           <li><a href="/assets/paginas/contato.html">Contato</a></li>
-          <li><a href="/assets/paginas/contato.html">Trabalhe Conosco</a></li>
+          <li><a href="/assets/paginas/paletas.html">Paletas</a></li>
+          <li><a href="/assets/paginas/picoles.html">Picolés</a></li>
+          <li><a href="/assets/paginas/outros.html">Diet</a></li>
         </ul>
       </div>
 
-      <div class="footer-section">
-        <ul class="#">
-          <li><a href="/assets/paginas/contato.html">Seja um fornecedor</a></li>
-          <li><a href="/assets/paginas/gelatos.html">Gelatos</a></li>
-          <li><a href="/assets/paginas/picoles.html">Picolés</a></li>
-          <li><a href="/assets/paginas/outros.html">Diet</a></li>
-          <li><a href="/assets/paginas/outros.html">Sobremesa</a></li>
-          <li><a href="/assets/paginas/outros.html">Para Viagem</a></li>
-        </ul>
-      </div>
       <section class="#">
-        <h4>Horário:</h4>
+        <h2>Horário:</h2>
         <p><em>Segunda a Domingo<br>das 13h às 23h</em></p>
         <p class="small-text"><em>(sujeito a alteração)</em><br><em>Verifique nossas Redes Sociais</em></p>
       </section>
 
       <section class="footer-location">
-        <h4>Localização:</h4>
+        <h2>Localização:</h2>
         <p><a href="https://maps.app.goo.gl/PGwLfbmZigVDXxCN8" target="_blank"> Avenida Pres. Castelo Branco, 6920 Cidade Ocian, Praia
             Grande SP</a></p>
       </section>
@@ -432,11 +454,10 @@
           <i class="fab fa-whatsapp"></i>
         </a>
         </div>
-        
-       <span> &copy; 2025 Gelateria Havana CNPJ:08.431.443/0001-49.</span>
-       <span><a href="/assets/paginas/politica-de-privacidade.html">Política de Privacidade</a></span>
-      
-    </div>
+         </div>
+         <div class="span_footer"> <span> &copy; 2025 Gelateria Havana CNPJ:08.431.443/0001-49.
+        <a href="/assets/paginas/politica-de-privacidade.html">Política de Privacidade</a></span>
+      </div>
     </footer>
     
   <script src="assets/JavaScript/script.js"></script>
