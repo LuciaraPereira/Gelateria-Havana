@@ -1,47 +1,18 @@
-// --- CONFIGURAÇÃO INICIAL E BANNER DE COOKIES ---
 document.addEventListener("DOMContentLoaded", function () {
-    const banner = document.getElementById("cookie-banner");
-
-    // Usa sessionStorage para persistência na sessão atual (se o usuário fechar a aba)
-    if (!localStorage.getItem("cookieConsent")) {
-        banner.style.display = "block";
-    }
-
-    // Aceitar Cookies
-    document.getElementById("accept-cookies").addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "accepted");
-        banner.style.display = "none";
-    });
-
-    // Recusar Cookies
-    document.getElementById("decline-cookies").addEventListener("click", function () {
-        localStorage.setItem("cookieConsent", "declined");
-        banner.style.display = "none";
-    });
-    
-    // Inicia a função de controle de Dropdown/Menu após o DOM estar pronto
     setupNavigation();
     setupSobreToggle();
+    setupCookieBanner();
 });
 
-
-// --- VARIÁVEIS DE NAVEGAÇÃO ---
-const dropDesktopBtn = document.getElementById('btndrop-desktop');
-const dropdownDesktop = document.getElementById('dropdown-desktop');
-const dropMobileBtn = document.getElementById('btndrop-mobile');
-const dropdownMobile = document.getElementById('dropdown-mobile');
-const menuIcon = document.getElementById('icon-menu');
-const navegacaoMenu = document.getElementById('links-nav');
-
-
-// Função principal de setup de navegação (Chamada dentro de DOMContentLoaded)
+// Função de configuração da navegação
 function setupNavigation() {
-    
-    // --- LÓGICA DO DROPDOWN (DESKTOP E MOBILE) ---
-    
+    const dropDesktopBtn = document.getElementById('btndrop-desktop');
+    const dropdownDesktop = document.getElementById('dropdown-desktop');
+    const dropMobileBtn = document.getElementById('btndrop-mobile');
+    const dropdownMobile = document.getElementById('dropdown-mobile');
+
     const toggleDropdown = (button, dropdown) => {
         const isShown = dropdown.classList.toggle('show');
-        // Acessibilidade: Atualiza o estado do botão para leitores de tela (WCAG 4.1.2)
         button.setAttribute('aria-expanded', isShown);
     };
 
@@ -50,7 +21,6 @@ function setupNavigation() {
             e.stopPropagation();
             toggleDropdown(dropDesktopBtn, dropdownDesktop);
         });
-        // Configura o estado inicial de ARIA
         dropDesktopBtn.setAttribute('aria-expanded', 'false');
     }
 
@@ -59,11 +29,9 @@ function setupNavigation() {
             e.stopPropagation();
             toggleDropdown(dropMobileBtn, dropdownMobile);
         });
-        // Configura o estado inicial de ARIA
         dropMobileBtn.setAttribute('aria-expanded', 'false');
     }
 
-    // --- FECHAMENTO GLOBAL (CLIQUE FORA) ---
     document.addEventListener('click', (e) => {
         if (dropDesktopBtn && dropdownDesktop && !dropDesktopBtn.contains(e.target) && !dropdownDesktop.contains(e.target)) {
             dropdownDesktop.classList.remove('show');
@@ -75,67 +43,55 @@ function setupNavigation() {
         }
     });
 
-    // --- CORREÇÃO CRÍTICA WCAG 1.4.13 (TECLA ESCAPE) ---
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            
-            // 1. Fecha Dropdown Desktop
             if (dropdownDesktop && dropdownDesktop.classList.contains('show')) {
                 dropdownDesktop.classList.remove('show');
                 dropDesktopBtn.setAttribute('aria-expanded', 'false');
-                e.preventDefault(); // Impede o navegador de voltar/sair
-                e.stopPropagation(); // Impede que o evento suba
+                e.preventDefault();
             }
-            
-            // 2. Fecha Dropdown Mobile
             if (dropdownMobile && dropdownMobile.classList.contains('show')) {
                 dropdownMobile.classList.remove('show');
                 dropMobileBtn.setAttribute('aria-expanded', 'false');
                 e.preventDefault();
-                e.stopPropagation();
-            }
-            
-            // 3. Fecha Menu Hambúrguer (se estiver ativo)
-            if (navegacaoMenu && navegacaoMenu.classList.contains('ativo')) {
-                navegacaoMenu.classList.remove('ativo');
-                e.preventDefault();
-                e.stopPropagation();
             }
         }
     });
-
-    // --- MENU HAMBÚRGUER RESPONSIVO ---
-    if (menuIcon && navegacaoMenu) {
-        // Acessibilidade: Adiciona ARIA para indicar o estado do menu (WCAG 4.1.2)
-        menuIcon.setAttribute('aria-expanded', 'false');
-        
-        menuIcon.addEventListener('click', () => {
-            const isExpanded = navegacaoMenu.classList.toggle('ativo');
-            menuIcon.setAttribute('aria-expanded', isExpanded);
-        });
-    }
 }
 
-
-// --- TOGGLE DA SEÇÃO SOBRE ---
+// Função de configuração para "Sobre"
 function setupSobreToggle() {
     const toggleBtn = document.getElementById('toggleBtn');
     const texto = document.getElementById('textoSobre');
-    
+
     if (toggleBtn && texto) {
-        // Configuração inicial de ARIA (WCAG 4.1.2)
         toggleBtn.setAttribute('aria-expanded', 'false');
         
         toggleBtn.addEventListener('click', () => {
             const isExpanded = texto.classList.toggle('expandido');
-            
-            // Atualiza o texto do botão
             toggleBtn.textContent = isExpanded ? 'Ver menos' : 'Ver mais';
-            
-            // Atualiza o estado ARIA
             toggleBtn.setAttribute('aria-expanded', isExpanded);
         });
     }
+}
+
+// Função do banner de cookies
+function setupCookieBanner() {
+    const banner = document.getElementById("cookie-banner");
+
+    if (!localStorage.getItem("cookieConsent")) {
+        banner.style.display = "block";
+    }
+
+    document.getElementById("accept-cookies").addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "accepted");
+        banner.style.display = "none";
+    });
+
+    document.getElementById("decline-cookies").addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "declined");
+        banner.style.display = "none";
+    });
 }
 
 
@@ -462,15 +418,8 @@ function validateAndConfirm() {
 } 
 
 // Função que envia o formulário assincronamente (chamada pelo modal)
-async function submitFormAsync(formId) { 
-    // CORREÇÃO DO BUG: Captura o formulário pelo ID passado
-    const form = document.getElementById(formId);
-    
-    if (!form) {
-        console.error("Erro: Formulário com ID " + formId + " não encontrado.");
-        return;
-    }
-    
+async function submitFormAsync() { 
+    const form = document.getElementById('contactForm');
     const formData = new FormData(form);
     
     // Fecha o modal de confirmação
@@ -551,7 +500,94 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Seu código original para correções de widgets (mantido para compatibilidade)
+
+// -------------------------------------------------------------------
+// CÓDIGOS DE CORREÇÃO DE WIDGETS (CONSOLIDADOS E ISOLADOS)
+// -------------------------------------------------------------------
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Nota: O código de correção de widgets deve ser colado aqui
+    
+    // === Variáveis e Constantes para Correção de Widgets ===
+    const LABEL_TEXT = 'Página Inteira';
+    const ARIA_LABEL_BUTTON = "Anexar Imagem";
+
+    // --- 1. CORREÇÃO DE RÓTULO ÓRFÃO (CHECKBOX) ---
+    function corrigirLabelInjetado() {
+        const allLabels = document.querySelectorAll('label.aifnmjmchg-cursor-pointer'); 
+        let targetLabel = null;
+
+        allLabels.forEach(label => {
+            if (label.textContent.trim() === LABEL_TEXT) {
+                targetLabel = label;
+            }
+        });
+
+        if (targetLabel) {
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'pagina-inteira-checkbox'; 
+            checkbox.id = 'pagina-inteira-toggle'; 
+            
+            targetLabel.prepend(checkbox);
+            targetLabel.style.whiteSpace = 'nowrap';
+            return true; // Sucesso
+        }
+        return false;
+    }
+
+    // --- 2. CORREÇÃO DE BOTÃO VAZIO (ÍCONE DE IMAGEM) ---
+    function corrigirBotoesVazios() {
+        const emptyButton = document.querySelector('button .fa-image');
+        const targetButton = emptyButton ? emptyButton.closest('button') : null;
+
+        if (targetButton) {
+            targetButton.setAttribute('aria-label', ARIA_LABEL_BUTTON); 
+            return true; // Sucesso
+        }
+        return false;
+    }
+
+    // --- 3. EXECUÇÃO PERIÓDICA PARA ELEMENTOS DINÂMICOS ---
+    
+    let correcaoContador = 0;
+    const MAX_TENTATIVAS = 20; // Tenta por 10 segundos (20 * 500ms)
+    
+    const correcaoInterval = setInterval(() => {
+        let corrigido = 0;
+
+        // Tenta aplicar as correções
+        if (corrigirLabelInjetado()) corrigido++;
+        if (corrigirBotoesVazios()) corrigido++;
+        // Adicione outras correções dinâmicas aqui
+        
+        correcaoContador++;
+
+        if (corrigido > 0 || correcaoContador >= MAX_TENTATIVAS) {
+            // Se pelo menos uma coisa foi corrigida ou o tempo limite foi atingido, para.
+            clearInterval(correcaoInterval);
+        }
+
+    }, 500); 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // LINHA 11 DO SEU SCRIPT (provavelmente)
+    const btnDesktop = document.getElementById("btndrop-desktop"); 
+    
+    // Verificação de segurança (crucial para o erro 'null')
+    if (btnDesktop) { 
+        btnDesktop.addEventListener('click', function() {
+            // Lógica do seu dropdown
+        });
+    }
+
+    // Repita a verificação para os outros elementos que deram erro, como o mobile
+    const btnMobile = document.getElementById("btndrop-mobile"); 
+    if (btnMobile) { 
+        btnMobile.addEventListener('click', function() {
+            // Lógica do seu dropdown
+        });
+    }
+
+}); // Fecha a função DOMContentLoaded
