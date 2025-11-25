@@ -67,6 +67,8 @@ body {
   color: white;
 }
 
+
+
 .navbar {
   background-color: #FFBBB5;
   color: #4F2819;
@@ -93,6 +95,33 @@ body {
   margin:0 20px;
   padding: 0;
 }
+
+/* menu mobile (inicial escondido) */
+.navegacao-responsivo {
+  display: none;
+  /* se usar transition: opacidade, também configure height/overflow conforme design */
+}
+
+.navegacao-responsivo.show-menu {
+  display: block;
+}
+
+/* dropdowns */
+.dropdown-content {
+  display: none;
+  position: absolute; /* ou relative conforme seu layout */
+  z-index: 50;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+/* z-index do menu mobile pra ficar acima do resto (ajuste conforme seu layout) */
+.navegacao-responsivo.show-menu {
+  z-index: 1000;
+}
+
 
 .nav-links a {
   text-decoration: none;
@@ -770,7 +799,7 @@ caption {
 }
 
 .texto-sobre.expandido {
-  max-height: 2000px; /* ajuste conforme o conteúdo */
+  height: 2000px; /* ajuste conforme o conteúdo */
 }
 
 /* Botão padrão */

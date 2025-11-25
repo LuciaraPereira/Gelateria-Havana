@@ -6,6 +6,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Função de configuração da navegação
 function setupNavigation() {
+
+    /* ===== MOBILE MENU (HAMBÚRGUER) ===== */
+    const iconMenu = document.getElementById("icon-menu");
+    const navLinks = document.getElementById("links-nav");
+
+    if (iconMenu && navLinks) {
+        iconMenu.addEventListener("click", () => {
+            navLinks.classList.toggle("show-menu");
+        });
+    }
+
+    /* ===== DROPDOWNS ===== */
     const dropDesktopBtn = document.getElementById('btndrop-desktop');
     const dropdownDesktop = document.getElementById('dropdown-desktop');
     const dropMobileBtn = document.getElementById('btndrop-mobile');
@@ -16,6 +28,7 @@ function setupNavigation() {
         button.setAttribute('aria-expanded', isShown);
     };
 
+    /* DESKTOP */
     if (dropDesktopBtn && dropdownDesktop) {
         dropDesktopBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -24,6 +37,7 @@ function setupNavigation() {
         dropDesktopBtn.setAttribute('aria-expanded', 'false');
     }
 
+    /* MOBILE */
     if (dropMobileBtn && dropdownMobile) {
         dropMobileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -32,6 +46,7 @@ function setupNavigation() {
         dropMobileBtn.setAttribute('aria-expanded', 'false');
     }
 
+    /* FECHAR DROPDOWNS AO CLICAR FORA */
     document.addEventListener('click', (e) => {
         if (dropDesktopBtn && dropdownDesktop && !dropDesktopBtn.contains(e.target) && !dropdownDesktop.contains(e.target)) {
             dropdownDesktop.classList.remove('show');
@@ -58,6 +73,10 @@ function setupNavigation() {
         }
     });
 }
+
+
+
+
 
 // Função de configuração para "Sobre"
 function setupSobreToggle() {
